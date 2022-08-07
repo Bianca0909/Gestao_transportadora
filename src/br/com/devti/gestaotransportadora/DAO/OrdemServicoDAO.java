@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrdemServicoDAO {
-    
+
     public String salvarOrdemServico(OrdemServicoEntity ordemServico) throws NegocioException {
 
         String sql = "INSERT INTO ordem_servico (endereco_os, cliente_id, fornecedor_id, colaborador_id, valor, veiculo) VALUES (?)";
@@ -20,11 +20,10 @@ public class OrdemServicoDAO {
         try {
             ps = ConexaoMySQL.getConexao().prepareStatement(sql);
             ps.setString(1, ordemServico.getEndereço());
-            ps.setObject(2, ordemServico.getCliente().getId());
-            ps.setObject(3, ordemServico.getFornecedor().getId());
-            ps.setObject(4, ordemServico.getColaborador().getId());
+            ps.setLong(2, ordemServico.getClienteId());
+            ps.setLong(3, ordemServico.getFornecedorId());
+            ps.setLong(4, ordemServico.getColaboradorId());
             ps.setDouble(5, ordemServico.getValor());
-            ps.setString(6, ordemServico.getVeiculo());
 
             ps.execute();
         } catch (SQLException e) {
@@ -38,10 +37,10 @@ public class OrdemServicoDAO {
         }
         return "Ordem de serviço cadastrada com sucesso";
     }
-  
-/*    public List<OrdemServicoEntity> listarOrdensServico() throws NegocioException {
 
-        String sql = "SELECT endereco_os, cliente_id, fornecedor_id, colaborador_id, valor, veiculo FROM ordem_servico";
+    public List<OrdemServicoEntity> listarOrdensServico() throws NegocioException {
+
+        String sql = "SELECT endereco_os, cliente_id, fornecedor_id, colaborador_id, valor FROM ordem_servico";
 
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -58,15 +57,13 @@ public class OrdemServicoDAO {
                                 rs.getString("endereco"),
                                 rs.getLong("cliente"),
                                 rs.getLong("fornecedor"),
-                                rs.getObject("colaborador"),
-                                rs.getDouble("valor"),
-                                rs.getString("veiculo")
-                        );
+                                rs.getLong("colaborador"),
+                                rs.getDouble("valor"));
                 resultado.add(ordemServico);
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new NegocioException("Erro ao listar Grupo de Usuário");
+            throw new NegocioException("Erro ao listar ordem de serviço");
         } finally {
             try {
                 ps.close();
@@ -79,7 +76,7 @@ public class OrdemServicoDAO {
         return resultado;
     }
 
-     public void excluirOrdemServico(Long id) throws NegocioException {
+    public void excluirOrdemServico(Long id) throws NegocioException {
 
         String sql = "DELETE FROM ordemServico WHERE id_ordem_servico = ?";
 
@@ -102,7 +99,7 @@ public class OrdemServicoDAO {
             }
         }
     }
-*/
+
     public OrdemServicoEntity buscarOrdemServicoPorId(Long id) throws NegocioException {
 
         String sql = "SELECT id_cliente, nome_cliente FROM cliente WHERE id_cliente = ?";
@@ -121,13 +118,13 @@ public class OrdemServicoDAO {
             if (rs.next()) {
                 ordemServicoEncontrada = new OrdemServicoEntity();
                 ordemServicoEncontrada.setId(rs.getLong("id_ordem_servico"));
-                
+
             }
 
             return ordemServicoEncontrada;
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new NegocioException("Erro ao buscar cliente por ID");
+            throw new NegocioException("Erro ao buscar ordem de serviço por ID");
         } finally {
             try {
                 ps.close();
@@ -136,21 +133,22 @@ public class OrdemServicoDAO {
                 e.printStackTrace();
             }
         }
-    }  
-    
-      public String alterarOrdemServico(OrdemServicoEntity ordemServico) throws NegocioException {
+    }
 
-        String sql = "UPDATE ordem_servico SET endereco_os, cliente_id, fornecedor_id, colaborador_id, valor, veiculo WHERE id_ordem_servico = ?";
+    public String alterarOrdemServico(OrdemServicoEntity ordemServico) throws NegocioException {
+
+        String sql = "UPDATE ordem_servico SET endereco_os, cliente_id, fornecedor_id, colaborador_id, valor WHERE id_ordem_servico = ?";
 
         PreparedStatement ps = null;
 
         try {
             ps = ConexaoMySQL.getConexao().prepareStatement(sql);
             ps.setLong(1, ordemServico.getId());
-            ps.setObject(2, ordemServico.getEndereço());
-            ps.setObject(3, ordemServico.getCliente().getId());
-            ps.setObject(4, ordemServico.getFornecedor().getId());
-            ps.setObject(5, ordemServico.getColaborador().getId());
+            ps.setString(2, ordemServico.getEndereço());
+            ps.setLong(3, ordemServico.getClienteId());
+            ps.setLong(4, ordemServico.getFornecedorId());
+            ps.setLong(5, ordemServico.getColaboradorId());
+            ps.setDouble(6, ordemServico.getValor());
             ps.execute();
 
         } catch (SQLException e) {
@@ -164,16 +162,7 @@ public class OrdemServicoDAO {
             }
         }
 
-        return "Cliente alterado com sucesso";
+        return "Ordem de serviço alterada com sucesso";
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

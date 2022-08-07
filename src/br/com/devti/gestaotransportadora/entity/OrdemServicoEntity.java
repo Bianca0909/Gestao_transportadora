@@ -4,25 +4,22 @@ public class OrdemServicoEntity {
 
     private Long id;
     private String endereço;
-    private ClienteEntity cliente;
-    private FornecedorEntity fornecedor;
-    private ColaboradorEntity colaborador;
+    private Long clienteId;
+    private Long fornecedorId;
+    private Long colaboradorId;
     private Double valor;
-    private String veiculo;
-    
 
-    public OrdemServicoEntity(Long id, String endereço, ClienteEntity cliente, FornecedorEntity fornecedor, ColaboradorEntity colaborador, Double valor, String veiculo) {
+    public OrdemServicoEntity(Long id, String endereço, Long clienteId, Long fornecedorId, Long colaboradorId, Double valor) {
         this.id = id;
         this.endereço = endereço;
-        this.cliente = cliente;
-        this.fornecedor = fornecedor;
-        this.colaborador = colaborador;
+        this.clienteId = clienteId;
+        this.fornecedorId = fornecedorId;
+        this.colaboradorId = colaboradorId;
         this.valor = valor;
-        this.veiculo = veiculo;
     }
 
     public OrdemServicoEntity() {
-     
+
     }
 
     public Long getId() {
@@ -41,28 +38,28 @@ public class OrdemServicoEntity {
         this.endereço = endereço;
     }
 
-    public ClienteEntity getCliente() {
-        return cliente;
+    public Long getClienteId() {
+        return clienteId;
     }
 
-    public void setCliente(ClienteEntity cliente) {
-        this.cliente = cliente;
+    public void setClienteId(Long clienteId) {
+        this.clienteId = clienteId;
     }
 
-    public FornecedorEntity getFornecedor() {
-        return fornecedor;
+    public Long getFornecedorId() {
+        return fornecedorId;
     }
 
-    public void setFornecedor(FornecedorEntity fornecedor) {
-        this.fornecedor = fornecedor;
+    public void setFornecedorId(Long fornecedorId) {
+        this.fornecedorId = fornecedorId;
     }
 
-    public ColaboradorEntity getColaborador() {
-        return colaborador;
+    public Long getColaboradorId() {
+        return colaboradorId;
     }
 
-    public void setColaborador(ColaboradorEntity colaborador) {
-        this.colaborador = colaborador;
+    public void setColaboradorId(Long colaboradorId) {
+        this.colaboradorId = colaboradorId;
     }
 
     public Double getValor() {
@@ -71,14 +68,6 @@ public class OrdemServicoEntity {
 
     public void setValor(Double valor) {
         this.valor = valor;
-    }
-
-    public String getVeiculo() {
-        return veiculo;
-    }
-
-    public void setVeiculo(String veiculo) {
-        this.veiculo = veiculo;
     }
 
 }
