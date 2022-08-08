@@ -13,7 +13,7 @@ public class ClienteDAO {
 
     public String salvarCliente(ClienteEntity cliente) throws NegocioException {
 
-        String sql = "INSERT INTO cliente (nome_cliente, email_cliente, data_nascimento_cliente, cpf_cliente) VALUES (?)";
+        String sql = "INSERT INTO cliente (nome_cliente, email_cliente, data_nascimento_cliente, cpf_cliente) VALUES (?,?,?,?)";
 
         PreparedStatement ps = null;
 
@@ -34,7 +34,7 @@ public class ClienteDAO {
                 e.printStackTrace();
             }
         }
-        return "Grupo de Usuário cadastrado com sucesso";
+        return "Cliente cadastrado com sucesso";
     }
 
     public List<ClienteEntity> listarClientes() throws NegocioException {
@@ -61,7 +61,7 @@ public class ClienteDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new NegocioException("Erro ao listar Grupo de Usuário");
+            throw new NegocioException("Erro ao listar cliente");
         } finally {
             try {
                 ps.close();
