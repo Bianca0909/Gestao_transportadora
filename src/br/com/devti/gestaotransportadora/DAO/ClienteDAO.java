@@ -11,155 +11,154 @@ import java.util.List;
 
 public class ClienteDAO {
 
-    public String salvarCliente(ClienteEntity cliente) throws NegocioException {
+	public String salvarCliente(ClienteEntity cliente) throws NegocioException {
+		
+		String sql = "INSERT INTO cliente (nome_cliente, email_cliente, data_nascimento_cliente, cpf_cliente) VALUES (?, ?, ?, ?)";
 
-        String sql = "INSERT INTO cliente (nome_cliente, email_cliente, data_nascimento_cliente, cpf_cliente) VALUES (?)";
+		PreparedStatement ps = null;
+		
+		try {
+			ps = ConexaoMySQL.getConexao().prepareStatement(sql);
+			ps.setString(1, cliente.getName());
+			ps.setString(2, cliente.getEmail());
+			ps.setString(3, cliente.getBirthday());
+			ps.setString(4, cliente.getCpf());
 
-        PreparedStatement ps = null;
+			ps.execute();
 
-        try {
-            ps = ConexaoMySQL.getConexao().prepareStatement(sql);
-            ps.setString(1, cliente.getName());
-            ps.setString(2, cliente.getEmail());
-            ps.setString(3, cliente.getBirthday());
-            ps.setString(4, cliente.getCpf());
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new NegocioException("Erro ao tentar cadastrar no banco");
+		} finally {
 
-            ps.execute();
-        } catch (SQLException e) {
-            throw new NegocioException("Erro ao tentar cadastrar no banco");
-        } finally {
-            try {
-                ps.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-        return "Grupo de Usuário cadastrado com sucesso";
-    }
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 
-    public List<ClienteEntity> listarClientes() throws NegocioException {
+		}
+		return "Cliente cadastrado com sucesso";
+	}
 
-        String sql = "SELECT id_cliente, nome_cliente FROM cliente ORDER BY nome_cliente";
+	public List<ClienteEntity> listarClientes() throws NegocioException {
 
-        PreparedStatement ps = null;
-        ResultSet rs = null;
+		String sql = "SELECT id_cliente, nome_cliente FROM cliente ORDER BY nome_cliente";
 
-        List<ClienteEntity> resultado = new ArrayList<ClienteEntity>();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
 
-        try {
-            ps = ConexaoMySQL.getConexao().prepareStatement(sql);
-            rs = ps.executeQuery();
+		List<ClienteEntity> resultado = new ArrayList<ClienteEntity>();
 
-            while (rs.next()) {
-                ClienteEntity cliente
-                        = new ClienteEntity(rs.getLong("id"),
-                                rs.getString("nome_cliente"),
-                                rs.getString("birthday"),
-                                rs.getString("email"),
-                                rs.getString("cpf"));
-                resultado.add(cliente);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new NegocioException("Erro ao listar Grupo de Usuário");
-        } finally {
-            try {
-                ps.close();
-                rs.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+		try {
+			ps = ConexaoMySQL.getConexao().prepareStatement(sql);
+			rs = ps.executeQuery();
 
-        return resultado;
-    }
+			while (rs.next()) {
+				ClienteEntity cliente = new ClienteEntity(rs.getInt("id_cliente"), rs.getString("nome_cliente"));
+				resultado.add(cliente);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new NegocioException("Erro ao listar Grupo de Usuário");
+		} finally {
+			try {
+				ps.close();
+				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 
-    public void excluirCliente(Long id) throws NegocioException {
+		return resultado;
+	}
 
-        String sql = "DELETE FROM cliente WHERE id_cliente = ?";
+	public void excluirCliente(int id) throws NegocioException {
 
-        PreparedStatement ps = null;
+		String sql = "DELETE FROM cliente WHERE id_cliente = ?";
 
-        try {
-            ps = ConexaoMySQL.getConexao().prepareStatement(sql);
-            ps.setLong(1, id);
+		PreparedStatement ps = null;
 
-            ps.execute();
+		try {
+			ps = ConexaoMySQL.getConexao().prepareStatement(sql);
+			ps.setLong(1, id);
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new NegocioException("Erro ao excluir usuario");
-        } finally {
-            try {
-                ps.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+			ps.execute();
 
-    public ClienteEntity buscarClientePorId(Long id) throws NegocioException {
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new NegocioException("Erro ao excluir usuario");
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
-        String sql = "SELECT id_cliente, nome_cliente FROM cliente WHERE id_cliente = ?";
+	public ClienteEntity buscarClientePorId(Long id) throws NegocioException {
 
-        PreparedStatement ps = null;
-        ResultSet rs = null;
+		String sql = "SELECT id_cliente, nome_cliente FROM cliente WHERE id_cliente = ?";
 
-        try {
-            ps = ConexaoMySQL.getConexao().prepareStatement(sql);
-            ps.setLong(1, id);
+		PreparedStatement ps = null;
+		ResultSet rs = null;
 
-            ClienteEntity clienteEncontrado = null;
+		try {
+			ps = ConexaoMySQL.getConexao().prepareStatement(sql);
+			ps.setLong(1, id);
 
-            rs = ps.executeQuery();
+			ClienteEntity clienteEncontrado = null;
 
-            if (rs.next()) {
-                clienteEncontrado = new ClienteEntity();
-                clienteEncontrado.SetId(rs.getLong("id_cliente"));
-                clienteEncontrado.setName(rs.getString("nome_cliente"));
-            }
+			rs = ps.executeQuery();
 
-            return clienteEncontrado;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new NegocioException("Erro ao buscar cliente por ID");
-        } finally {
-            try {
-                ps.close();
-                rs.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+			if (rs.next()) {
+				clienteEncontrado = new ClienteEntity();
+				clienteEncontrado.SetId(rs.getInt("id_cliente"));
+				clienteEncontrado.setName(rs.getString("nome_cliente"));
+			}
 
-    public String alterarCliente(ClienteEntity cliente) throws NegocioException {
+			return clienteEncontrado;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new NegocioException("Erro ao buscar cliente por ID");
+		} finally {
+			try {
+				ps.close();
+				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
-        String sql = "UPDATE cliente SET nome_cliente, email_cliente, data_nascimento_cliente, cpf_cliente WHERE ID_GRUPO = ?";
+	public String alterarCliente(ClienteEntity cliente) throws NegocioException {
 
-        PreparedStatement ps = null;
+		String sql = "UPDATE cliente SET nome_cliente, email_cliente, data_nascimento_cliente, cpf_cliente WHERE ID_GRUPO = ?";
 
-        try {
-            ps = ConexaoMySQL.getConexao().prepareStatement(sql);
-            ps.setLong(1, cliente.getId());
-            ps.setString(2, cliente.getName());
-            ps.setString(3, cliente.getEmail());
-            ps.setString(4, cliente.getBirthday());
-            ps.setString(5, cliente.getCpf());
-            ps.execute();
+		PreparedStatement ps = null;
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new NegocioException("Erro ao atualizar cliente");
-        } finally {
-            try {
-                ps.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+		try {
+			ps = ConexaoMySQL.getConexao().prepareStatement(sql);
+			ps.setLong(1, cliente.getId());
+			ps.setString(2, cliente.getName());
+			ps.setString(3, cliente.getEmail());
+			ps.setString(4, cliente.getBirthday());
+			ps.setString(5, cliente.getCpf());
+			ps.execute();
 
-        return "Cliente alterado com sucesso";
-    }
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new NegocioException("Erro ao atualizar cliente");
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return "Cliente alterado com sucesso";
+	}
 
 }

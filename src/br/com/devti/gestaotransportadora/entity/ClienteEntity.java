@@ -8,9 +8,9 @@ public class ClienteEntity {
     private String name;
     private String birthday;
     private String cpf;
-    private Long id;
+    private int id;
 
-    public ClienteEntity(Long id, String name, String birthday, String cpf, String email) {
+    public ClienteEntity(int id, String name, String birthday, String cpf, String email) {
         this.id = id;
         this.name = name;
         this.birthday = birthday;
@@ -18,17 +18,22 @@ public class ClienteEntity {
         this.email = email;
         
     }
+    
+    public ClienteEntity(Integer id, String name) {
+    	this.id = id;
+    	this.name = name;
+    }
 
     public ClienteEntity() {
         
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
 
     }
 
-    public void SetId(Long id) {
+    public void SetId(int id) {
         this.id = id;
     }
 
@@ -44,7 +49,7 @@ public class ClienteEntity {
         return birthday;
     }
 
-    public void setBirthday() {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 

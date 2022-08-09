@@ -8,9 +8,6 @@ import java.util.List;
 public class ClienteBO {
 
     private void validarCliente(ClienteEntity cliente) throws NegocioException {
-        if (cliente == null) {
-            throw new NegocioException("O cliente nao pode ser nulo.");
-        }
         if (cliente.getName() == null || cliente.getName().equals("")) {
             throw new NegocioException("O nome do cliente deve ser preenchido.");
         }
@@ -30,7 +27,7 @@ public class ClienteBO {
 
     public String alterarCliente(ClienteEntity cliente) throws NegocioException {
 
-        validarCliente(cliente);
+      //  validarCliente(cliente);
 
         return new ClienteDAO().alterarCliente(cliente);
     }
@@ -39,7 +36,7 @@ public class ClienteBO {
         return new ClienteDAO().listarClientes();
     }
 
-    public void excluirCliente(Long id) throws NegocioException {
+    public void excluirCliente(int id) throws NegocioException {
         new ClienteDAO().excluirCliente(id);
     }
 

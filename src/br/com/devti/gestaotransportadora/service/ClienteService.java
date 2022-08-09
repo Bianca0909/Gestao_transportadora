@@ -6,6 +6,11 @@ import br.com.devtigestaotransportadora.bo.ClienteBO;
 import java.util.List;
 
 public class ClienteService {
+	
+	public String salvarCliente(ClienteEntity cliente) throws NegocioException{
+		ClienteBO clienteBo = new ClienteBO();
+		return clienteBo.salvarCliente(cliente);
+	}
 
     public String cadastrarCliente(ClienteEntity cliente) throws NegocioException {
         ClienteBO clienteBo = new ClienteBO();
@@ -16,7 +21,7 @@ public class ClienteService {
         return new ClienteBO().listarClientes();
     }
 
-    public void excluirCliente(Long id) throws NegocioException {
+    public void excluirCliente(int id) throws NegocioException {
         new ClienteBO().excluirCliente(id);
     }
 
