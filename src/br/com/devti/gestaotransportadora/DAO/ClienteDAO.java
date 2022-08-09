@@ -15,6 +15,7 @@ public class ClienteDAO {
 		
 		String sql = "INSERT INTO cliente (nome_cliente, email_cliente, data_nascimento_cliente, cpf_cliente) VALUES (?, ?, ?, ?)";
 
+<<<<<<< HEAD
 		PreparedStatement ps = null;
 		
 		try {
@@ -23,6 +24,9 @@ public class ClienteDAO {
 			ps.setString(2, cliente.getEmail());
 			ps.setString(3, cliente.getBirthday());
 			ps.setString(4, cliente.getCpf());
+=======
+        String sql = "INSERT INTO cliente (nome_cliente, email_cliente, data_nascimento_cliente, cpf_cliente) VALUES (?,?,?,?)";
+>>>>>>> 976b5e088589bcedd18ccbbfc71c1cabe22c7137
 
 			ps.execute();
 
@@ -31,11 +35,26 @@ public class ClienteDAO {
 			throw new NegocioException("Erro ao tentar cadastrar no banco");
 		} finally {
 
+<<<<<<< HEAD
 			try {
 				ps.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+=======
+            ps.execute();
+        } catch (SQLException e) {
+            throw new NegocioException("Erro ao tentar cadastrar no banco");
+        } finally {
+            try {
+                ps.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return "Cliente cadastrado com sucesso";
+    }
+>>>>>>> 976b5e088589bcedd18ccbbfc71c1cabe22c7137
 
 		}
 		return "Cliente cadastrado com sucesso";
@@ -50,9 +69,32 @@ public class ClienteDAO {
 
 		List<ClienteEntity> resultado = new ArrayList<ClienteEntity>();
 
+<<<<<<< HEAD
 		try {
 			ps = ConexaoMySQL.getConexao().prepareStatement(sql);
 			rs = ps.executeQuery();
+=======
+            while (rs.next()) {
+                ClienteEntity cliente
+                        = new ClienteEntity(rs.getLong("id"),
+                                rs.getString("nome_cliente"),
+                                rs.getString("birthday"),
+                                rs.getString("email"),
+                                rs.getString("cpf"));
+                resultado.add(cliente);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new NegocioException("Erro ao listar cliente");
+        } finally {
+            try {
+                ps.close();
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+>>>>>>> 976b5e088589bcedd18ccbbfc71c1cabe22c7137
 
 			while (rs.next()) {
 				ClienteEntity cliente = new ClienteEntity(rs.getInt("id_cliente"), rs.getString("nome_cliente"));
