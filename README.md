@@ -1,4 +1,4 @@
-                                                       Projeto final DEVTISUL - Módulo 2 
+ Projeto final DEVTISUL - Módulo 2 
 
 - <span style='font-size:100px;'>&#128198;</span>DATA DE ENTREGA: 03/09 <span style='font-size:100px;'>&#128198;</span>
 
