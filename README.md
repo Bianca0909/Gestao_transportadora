@@ -2,7 +2,7 @@
 
 - <span style='font-size:100px;'>&#128198;</span>DATA DE ENTREGA: 03/09 <span style='font-size:100px;'>&#128198;</span>
 
-- CLASSE DE USUÁRIO  <span style='font-size:100px;'>&#10060;</span>
+- CLASSE DE USUÁRIO  <span style='font-size:100px;'>&#9989;</span>
 
 - CRUD BACKEND:
   - CADASTRAR <span style='font-size:100px;'>&#9989;</span>,
