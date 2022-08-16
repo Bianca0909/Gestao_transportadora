@@ -12,21 +12,17 @@ import java.util.List;
 public class ClienteDAO {
 
 	public String salvarCliente(ClienteEntity cliente) throws NegocioException {
-		
+
 		String sql = "INSERT INTO cliente (nome_cliente, email_cliente, data_nascimento_cliente, cpf_cliente) VALUES (?, ?, ?, ?)";
 
-<<<<<<< HEAD
 		PreparedStatement ps = null;
-		
+
 		try {
 			ps = ConexaoMySQL.getConexao().prepareStatement(sql);
 			ps.setString(1, cliente.getName());
 			ps.setString(2, cliente.getEmail());
 			ps.setString(3, cliente.getBirthday());
 			ps.setString(4, cliente.getCpf());
-=======
-        String sql = "INSERT INTO cliente (nome_cliente, email_cliente, data_nascimento_cliente, cpf_cliente) VALUES (?,?,?,?)";
->>>>>>> 976b5e088589bcedd18ccbbfc71c1cabe22c7137
 
 			ps.execute();
 
@@ -35,26 +31,11 @@ public class ClienteDAO {
 			throw new NegocioException("Erro ao tentar cadastrar no banco");
 		} finally {
 
-<<<<<<< HEAD
 			try {
 				ps.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-=======
-            ps.execute();
-        } catch (SQLException e) {
-            throw new NegocioException("Erro ao tentar cadastrar no banco");
-        } finally {
-            try {
-                ps.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-        return "Cliente cadastrado com sucesso";
-    }
->>>>>>> 976b5e088589bcedd18ccbbfc71c1cabe22c7137
 
 		}
 		return "Cliente cadastrado com sucesso";
@@ -69,40 +50,17 @@ public class ClienteDAO {
 
 		List<ClienteEntity> resultado = new ArrayList<ClienteEntity>();
 
-<<<<<<< HEAD
 		try {
 			ps = ConexaoMySQL.getConexao().prepareStatement(sql);
 			rs = ps.executeQuery();
-=======
-            while (rs.next()) {
-                ClienteEntity cliente
-                        = new ClienteEntity(rs.getLong("id"),
-                                rs.getString("nome_cliente"),
-                                rs.getString("birthday"),
-                                rs.getString("email"),
-                                rs.getString("cpf"));
-                resultado.add(cliente);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new NegocioException("Erro ao listar cliente");
-        } finally {
-            try {
-                ps.close();
-                rs.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
->>>>>>> 976b5e088589bcedd18ccbbfc71c1cabe22c7137
 
 			while (rs.next()) {
-				ClienteEntity cliente = new ClienteEntity(rs.getInt("id_cliente"), rs.getString("nome_cliente"));
+				ClienteEntity cliente = new ClienteEntity(rs.getInt("id"), rs.getString("nome_cliente"));
 				resultado.add(cliente);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new NegocioException("Erro ao listar Grupo de Usuário");
+			throw new NegocioException("Erro ao listar cliente");
 		} finally {
 			try {
 				ps.close();
@@ -129,7 +87,7 @@ public class ClienteDAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new NegocioException("Erro ao excluir usuario");
+			throw new NegocioException("Erro ao excluir cliente");
 		} finally {
 			try {
 				ps.close();
@@ -139,7 +97,7 @@ public class ClienteDAO {
 		}
 	}
 
-	public ClienteEntity buscarClientePorId(Long id) throws NegocioException {
+	public ClienteEntity buscarClientePorId(int id) throws NegocioException {
 
 		String sql = "SELECT id_cliente, nome_cliente FROM cliente WHERE id_cliente = ?";
 
@@ -176,17 +134,18 @@ public class ClienteDAO {
 
 	public String alterarCliente(ClienteEntity cliente) throws NegocioException {
 
-		String sql = "UPDATE cliente SET nome_cliente, email_cliente, data_nascimento_cliente, cpf_cliente WHERE ID_GRUPO = ?";
+		String sql = "UPDATE cliente SET nome_cliente = ?, email_cliente = ?, data_nascimento_cliente = ? , cpf_cliente = ? WHERE id_cliente = ?";
 
 		PreparedStatement ps = null;
 
 		try {
 			ps = ConexaoMySQL.getConexao().prepareStatement(sql);
-			ps.setLong(1, cliente.getId());
-			ps.setString(2, cliente.getName());
-			ps.setString(3, cliente.getEmail());
-			ps.setString(4, cliente.getBirthday());
-			ps.setString(5, cliente.getCpf());
+
+			ps.setString(1, cliente.getName());
+			ps.setString(2, cliente.getEmail());
+			ps.setString(3, cliente.getBirthday());
+			ps.setString(4, cliente.getCpf());
+			ps.setInt(5, cliente.getId());
 			ps.execute();
 
 		} catch (SQLException e) {

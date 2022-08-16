@@ -52,7 +52,7 @@ public class ColaboradorDAO {
 
             while (rs.next()) {
                 ColaboradorEntity colaborador
-                        = new ColaboradorEntity(rs.getLong("id_colaborador"),
+                        = new ColaboradorEntity(rs.getInt("id_colaborador"),
                                 rs.getString("nome_colaborador"),
                                 rs.getString("cpf_colaborador"),
                                 rs.getString("data_nascimento_colaborador"),
@@ -74,7 +74,7 @@ public class ColaboradorDAO {
         return resultado;
     }
 
-    public void excluirColaborador(Long id) throws NegocioException {
+    public void excluirColaborador(int id) throws NegocioException {
 
         String sql = "DELETE FROM colaborador WHERE id_colaborador = ?";
 
@@ -98,7 +98,7 @@ public class ColaboradorDAO {
         }
     }
 
-    public ColaboradorEntity buscarColaboradorPorId(Long id) throws NegocioException {
+    public ColaboradorEntity buscarColaboradorPorId(int id) throws NegocioException {
 
         String sql = "SELECT id_colaborador, nome_colaborador, pis_colaborador FROM colaborador WHERE id_colaborador = ?";
 
@@ -115,7 +115,7 @@ public class ColaboradorDAO {
 
             if (rs.next()) {
                 colaboradorEncontrado = new ColaboradorEntity();
-                colaboradorEncontrado.setId(rs.getLong("id_colaborador"));
+                colaboradorEncontrado.setId(rs.getInt("id_colaborador"));
                 colaboradorEncontrado.setName(rs.getString("nome_colaborador"));
                 colaboradorEncontrado.setPis(rs.getString("pis_colaborador"));
             }
@@ -142,7 +142,7 @@ public class ColaboradorDAO {
 
         try {
             ps = ConexaoMySQL.getConexao().prepareStatement(sql);
-            ps.setLong(1, colaborador.getId());
+            ps.setInt(1, colaborador.getId());
             ps.setString(2, colaborador.getName());
             ps.setString(3, colaborador.getCpf());
             ps.setString(4, colaborador.getBirthday());

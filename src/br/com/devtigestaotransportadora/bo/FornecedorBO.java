@@ -40,11 +40,11 @@ public class FornecedorBO {
     public List<FornecedorEntity> listarFornecedores() throws NegocioException {
         return new FornecedorDAO().listarFornecedores();
     }
-    public void excluirFornecedor(Long id) throws NegocioException {
+    public void excluirFornecedor(int id) throws NegocioException {
         new FornecedorDAO().excluirFornecedor(id);
     }
     
-     public FornecedorEntity buscarFornecedorPorId(Long id) throws NegocioException {
+     public FornecedorEntity buscarFornecedorPorId(int id) throws NegocioException {
         return new FornecedorDAO().buscarFornecedorPorId(id);
     }
 }

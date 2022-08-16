@@ -41,11 +41,11 @@ public class OrdemServicoBO {
         return new OrdemServicoDAO().listarOrdensServico();
     }
 
-    public void excluirOrdemServico(Long id) throws NegocioException {
+    public void excluirOrdemServico(int id) throws NegocioException {
         new OrdemServicoDAO().excluirOrdemServico(id);
     }
 
-    public OrdemServicoEntity buscarOrdemServicoPorId(Long id) throws NegocioException {
+    public OrdemServicoEntity buscarOrdemServicoPorId(int id) throws NegocioException {
         return new OrdemServicoDAO().buscarOrdemServicoPorId(id);
     }
   

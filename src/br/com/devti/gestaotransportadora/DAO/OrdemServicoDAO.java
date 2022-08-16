@@ -53,7 +53,7 @@ public class OrdemServicoDAO {
 
             while (rs.next()) {
                 OrdemServicoEntity ordemServico
-                        = new OrdemServicoEntity(rs.getLong("id"),
+                        = new OrdemServicoEntity(rs.getInt("id"),
                                 rs.getString("endereco"),
                                 rs.getLong("cliente"),
                                 rs.getLong("fornecedor"),
@@ -76,7 +76,7 @@ public class OrdemServicoDAO {
         return resultado;
     }
 
-    public void excluirOrdemServico(Long id) throws NegocioException {
+    public void excluirOrdemServico(int id) throws NegocioException {
 
         String sql = "DELETE FROM ordemServico WHERE id_ordem_servico = ?";
 
@@ -100,7 +100,7 @@ public class OrdemServicoDAO {
         }
     }
 
-    public OrdemServicoEntity buscarOrdemServicoPorId(Long id) throws NegocioException {
+    public OrdemServicoEntity buscarOrdemServicoPorId(int id) throws NegocioException {
 
         String sql = "SELECT id_cliente, nome_cliente FROM cliente WHERE id_cliente = ?";
 
@@ -117,7 +117,7 @@ public class OrdemServicoDAO {
 
             if (rs.next()) {
                 ordemServicoEncontrada = new OrdemServicoEntity();
-                ordemServicoEncontrada.setId(rs.getLong("id_ordem_servico"));
+                ordemServicoEncontrada.setId(rs.getInt("id_ordem_servico"));
 
             }
 
@@ -153,7 +153,7 @@ public class OrdemServicoDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new NegocioException("Erro ao atualizar cliente");
+            throw new NegocioException("Erro ao atualizar ordem de serviço");
         } finally {
             try {
                 ps.close();

@@ -2,14 +2,14 @@ package br.com.devti.gestaotransportadora.entity;
 
 public class OrdemServicoEntity {
 
-    private Long id;
+    private int id;
     private String endereço;
     private Long clienteId;
     private Long fornecedorId;
     private Long colaboradorId;
     private Double valor;
 
-    public OrdemServicoEntity(Long id, String endereço, Long clienteId, Long fornecedorId, Long colaboradorId, Double valor) {
+    public OrdemServicoEntity(int id, String endereço, Long clienteId, Long fornecedorId, Long colaboradorId, Double valor) {
         this.id = id;
         this.endereço = endereço;
         this.clienteId = clienteId;
@@ -22,11 +22,11 @@ public class OrdemServicoEntity {
 
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

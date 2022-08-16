@@ -40,11 +40,11 @@ public class ColaboradorBO {
         return new ColaboradorDAO().listarColaboradores();
     }
         
-    public void excluirColaborador(Long id) throws NegocioException {
+    public void excluirColaborador(int id) throws NegocioException {
         new ColaboradorDAO().excluirColaborador(id);
     }
 
-    public ColaboradorEntity buscarColaboradorPorId(Long id) throws NegocioException {
+    public ColaboradorEntity buscarColaboradorPorId(int id) throws NegocioException {
         return new ColaboradorDAO().buscarColaboradorPorId(id);
     }
 

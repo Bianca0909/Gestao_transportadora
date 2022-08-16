@@ -19,7 +19,7 @@ public class FornecedorService {
         return new FornecedorBO().listarFornecedores();
     }
 
-    public void excluirColaborador(Long id) throws NegocioException {
+    public void excluirColaborador(int id) throws NegocioException {
         new FornecedorBO().excluirFornecedor(id);
     }
 
@@ -27,7 +27,7 @@ public class FornecedorService {
         return new FornecedorBO().alterarFornecedor(fornecedor);
     }
 
-    public FornecedorEntity buscarFornecedorPorId(Long id) throws NegocioException {
+    public FornecedorEntity buscarFornecedorPorId(int id) throws NegocioException {
         return new FornecedorBO().buscarFornecedorPorId(id);
     }
 

@@ -29,7 +29,7 @@ public class ClienteService {
         return new ClienteBO().alterarCliente(cliente);
     }
 
-    public ClienteEntity buscarClientePorId(Long id) throws NegocioException {
+    public ClienteEntity buscarClientePorId(int id) throws NegocioException {
         return new ClienteBO().buscarClientePorId(id);
     }
 }

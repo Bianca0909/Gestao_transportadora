@@ -16,7 +16,7 @@ public class ColaboradorService {
         return new ColaboradorBO().listarColaboradores();
     }
 
-    public void excluirColaborador(Long id) throws NegocioException {
+    public void excluirColaborador(int id) throws NegocioException {
         new ColaboradorBO().excluirColaborador(id);
     }
 
@@ -24,7 +24,7 @@ public class ColaboradorService {
         return new ColaboradorBO().alterarColaborador(colaborador);
     }
 
-    public ColaboradorEntity buscarColaboradorPorId(Long id) throws NegocioException {
+    public ColaboradorEntity buscarColaboradorPorId(int id) throws NegocioException {
         return new ColaboradorBO().buscarColaboradorPorId(id);
     }
 

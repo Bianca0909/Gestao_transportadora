@@ -52,7 +52,7 @@ public class FornecedorDAO {
 
             while (rs.next()) {
                 FornecedorEntity fornecedor
-                        = new FornecedorEntity(rs.getLong("id_fornecedor"),
+                        = new FornecedorEntity(rs.getInt("id_fornecedor"),
                                 rs.getString("nome_fornecedor"),
                                 rs.getString("cnpj_fornecedor"),
                                 rs.getString("data_registro_fornecedor"));
@@ -74,7 +74,7 @@ public class FornecedorDAO {
         return resultado;
     }
 
-    public void excluirFornecedor(Long id) throws NegocioException {
+    public void excluirFornecedor(int id) throws NegocioException {
 
         String sql = "DELETE FROM fornecedor WHERE id_fornecedor = ?";
 
@@ -98,7 +98,7 @@ public class FornecedorDAO {
         }
     }
 
-    public FornecedorEntity buscarFornecedorPorId(Long id) throws NegocioException {
+    public FornecedorEntity buscarFornecedorPorId(int id) throws NegocioException {
 
         String sql = "SELECT id_fornecedor, nome_fornecedor, cnpj_fornecedor FROM fornecedor WHERE id_fornecedor = ?";
 
@@ -115,7 +115,7 @@ public class FornecedorDAO {
 
             if (rs.next()) {
                 fornecedorEncontrado = new FornecedorEntity();
-                fornecedorEncontrado.setId(rs.getLong("id_fornecedor"));
+                fornecedorEncontrado.setId(rs.getInt("id_fornecedor"));
                 fornecedorEncontrado.setName(rs.getString("nome_fornecedor"));
                 fornecedorEncontrado.setCnpj(rs.getString("cnpj_fornecedor"));
             }

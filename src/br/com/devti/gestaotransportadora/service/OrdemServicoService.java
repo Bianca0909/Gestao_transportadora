@@ -17,7 +17,7 @@ public class OrdemServicoService {
           public List<OrdemServicoEntity> listarOrdemServico() throws NegocioException {
         return new OrdemServicoBO().listarOrdensServico();
     }
-	 public void excluirOrdemServico(Long id) throws NegocioException {
+	 public void excluirOrdemServico(int id) throws NegocioException {
         new OrdemServicoBO().excluirOrdemServico(id);
     }
 
@@ -25,7 +25,7 @@ public class OrdemServicoService {
         return new OrdemServicoBO().alterarOrdemServico(ordemServico);
     }
 
-    public OrdemServicoEntity buscarOrdemServicoPorId(Long id) throws NegocioException {
+    public OrdemServicoEntity buscarOrdemServicoPorId(int id) throws NegocioException {
         return new OrdemServicoBO().buscarOrdemServicoPorId(id);
     }
 }

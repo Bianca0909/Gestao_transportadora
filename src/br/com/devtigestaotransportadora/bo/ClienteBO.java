@@ -27,7 +27,7 @@ public class ClienteBO {
 
     public String alterarCliente(ClienteEntity cliente) throws NegocioException {
 
-      //  validarCliente(cliente);
+        validarCliente(cliente);
 
         return new ClienteDAO().alterarCliente(cliente);
     }
@@ -40,7 +40,7 @@ public class ClienteBO {
         new ClienteDAO().excluirCliente(id);
     }
 
-    public ClienteEntity buscarClientePorId(Long id) throws NegocioException {
+    public ClienteEntity buscarClientePorId(int id) throws NegocioException {
         return new ClienteDAO().buscarClientePorId(id);
     }
 }

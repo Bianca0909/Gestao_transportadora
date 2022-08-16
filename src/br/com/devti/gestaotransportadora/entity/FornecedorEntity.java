@@ -13,9 +13,9 @@ public class FornecedorEntity {
     private String cnpj;
     private String name;
     private String birthday;
-    private Long id;
+    private int id;
 
-    public FornecedorEntity(Long id, String cnpj, String name, String birthday) {
+    public FornecedorEntity(int id, String cnpj, String name, String birthday) {
         this.cnpj = cnpj;
         this.name = name;
         this.birthday = birthday;
@@ -50,11 +50,11 @@ public class FornecedorEntity {
         this.birthday = birthday;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
