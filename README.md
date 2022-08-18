@@ -9,8 +9,10 @@ Projeto final DEVTISUL - Módulo 2
   - DELETAR <span style='font-size:100px;'>&#9989;</span>,
   - BUSCAR POR ID <span style='font-size:100px;'>&#9989;</span>,
   - PESQUISA FILTRADA <span style='font-size:100px;'>&#9989;</span>,
+
  
 - CRUD INTERFACE GRÁFICA:
+  - TELA DE MENU <span style='font-size:100px;'>&#10060;</span>
   - CADASTRAR <span style='font-size:100px;'>&#10060;</span>,
   - ALTERAR <span style='font-size:100px;'>&#10060;</span>,
   - LISTAR <span style='font-size:100px;'>&#10060;</span>,
@@ -22,12 +24,13 @@ Projeto final DEVTISUL - Módulo 2
 - LOGIN BACKEND (BÔNUS); <span style='font-size:100px;'>&#10060;</span>,
 - INTERFACE GRÁFICA LOGIN (BÔNUS). <span style='font-size:100px;'>&#10060;</span>
  
-
-
+- CLASSE DE USUÁRIO  <span style='font-size:100px;'>&#9989;</span>
+- CLASSE DE ORDEM DE SERVIÇO <span style='font-size:100px;'>&#10067;</span> 
 
  Legendas: <p>
 
 <span style='font-size:100px;'>&#128204;</span>: Fazendo <p>
 <span style='font-size:100px;'>&#9989;</span>: Feito <p>
 <span style='font-size:100px;'>&#10060;</span>: Falta fazer <p>
-- CLASSE DE USUÁRIO  <span style='font-size:100px;'>&#9989;</span>
+<span style='font-size:100px;'>&#10067;</span>: Com erro(s)
+
