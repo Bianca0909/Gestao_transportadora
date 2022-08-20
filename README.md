@@ -25,7 +25,7 @@ Projeto final DEVTISUL - Módulo 2
 - INTERFACE GRÁFICA LOGIN (BÔNUS). <span style='font-size:100px;'>&#10060;</span>
  
 - CLASSE DE USUÁRIO  <span style='font-size:100px;'>&#9989;</span>
-- CLASSE DE ORDEM DE SERVIÇO <span style='font-size:100px;'>&#10067;</span> 
+ 
 
  Legendas: <p>
 
