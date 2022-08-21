@@ -1,23 +1,19 @@
 package br.com.devtigestaotransportadora.bo;
 
-import br.com.devti.gestaotransportadora.DAO.ClienteDAO;
-import br.com.devti.gestaotransportadora.DAO.OrdemServicoDAO;
-import br.com.devti.gestaotransportadora.entity.ClienteEntity;
-import br.com.devti.gestaotransportadora.entity.OrdemServicoEntity;
-import br.com.devti.gestaotransportadora.service.OrdemServicoService;
-import br.com.devti.gestaotransportadora.util.exception.NegocioException;
 import java.util.List;
+
+import br.com.devti.gestaotransportadora.DAO.OrdemServicoDAO;
+import br.com.devti.gestaotransportadora.entity.OrdemServicoEntity;
+import br.com.devti.gestaotransportadora.util.exception.NegocioException;
 
 public class OrdemServicoBO {
 
     private void validarOrdemServico(OrdemServicoEntity ordemServico) throws NegocioException {
-        if (ordemServico == null) {
-            throw new NegocioException("O cliente nao pode ser nulo.");
-        }
-        if (ordemServico.getClienteId() == null || ordemServico.getClienteId().equals("")) {
+     
+        if (ordemServico.getClienteId() == null) {
             throw new NegocioException("O cliente deve ser informado.");
         }
-        if (ordemServico.getValor() == null || ordemServico.getValor().equals("")) {
+        if (ordemServico.getValor() == null) {
             throw new NegocioException("O valor da ordem de serviço deve ser informada.");
         }
 
@@ -41,14 +37,16 @@ public class OrdemServicoBO {
         return new OrdemServicoDAO().listarOrdensServico();
     }
 
-    public void excluirOrdemServico(int id) throws NegocioException {
+    public void excluirOrdemServico(Integer id) throws NegocioException {
         new OrdemServicoDAO().excluirOrdemServico(id);
     }
 
-    public OrdemServicoEntity buscarOrdemServicoPorId(int id) throws NegocioException {
+    public OrdemServicoEntity buscarOrdemServicoPorId(Integer id) throws NegocioException {
         return new OrdemServicoDAO().buscarOrdemServicoPorId(id);
     }
-  
+    public List<OrdemServicoEntity> buscarOrdemServicoFiltrada(OrdemServicoEntity ordemServico) throws NegocioException {
+		return new OrdemServicoDAO().buscarOrdemServicoFiltrada(ordemServico);
+	}
     
 
 }

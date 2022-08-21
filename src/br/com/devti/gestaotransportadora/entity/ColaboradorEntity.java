@@ -6,9 +6,9 @@ public class ColaboradorEntity {
     private String name;
     private String cpf;
     private String birthday;
-    private int id;
+    private Integer id;
 
-    public ColaboradorEntity(int id, String name, String birthday, String cpf, String pis) {
+    public ColaboradorEntity(Integer id, String name, String birthday, String cpf, String pis) {
         this.name = name;
         this.pis = pis;
         this.cpf = cpf;
@@ -53,11 +53,11 @@ public class ColaboradorEntity {
         this.birthday = birthday;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

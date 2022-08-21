@@ -1,31 +1,36 @@
 package br.com.devti.gestaotransportadora.service;
 
-import br.com.devti.gestaotransportadora.entity.ClienteEntity;
+import java.util.List;
+
 import br.com.devti.gestaotransportadora.entity.OrdemServicoEntity;
 import br.com.devti.gestaotransportadora.util.exception.NegocioException;
-import br.com.devtigestaotransportadora.bo.ClienteBO;
 import br.com.devtigestaotransportadora.bo.OrdemServicoBO;
-import java.util.List;
 
 public class OrdemServicoService {
 
 	public String cadastrarOrdemServico(OrdemServicoEntity ordemServico) throws NegocioException {
-        OrdemServicoBO ordemServicoBo = new OrdemServicoBO();
-        return ordemServicoBo.salvarOrdemServico(ordemServico);
-    }
+		OrdemServicoBO ordemServicoBo = new OrdemServicoBO();
+		return ordemServicoBo.salvarOrdemServico(ordemServico);
+	}
 
-          public List<OrdemServicoEntity> listarOrdemServico() throws NegocioException {
-        return new OrdemServicoBO().listarOrdensServico();
-    }
-	 public void excluirOrdemServico(int id) throws NegocioException {
-        new OrdemServicoBO().excluirOrdemServico(id);
-    }
+	public List<OrdemServicoEntity> listarOrdemServico() throws NegocioException {
+		return new OrdemServicoBO().listarOrdensServico();
+	}
 
-    public String alterarOrdemServico(OrdemServicoEntity ordemServico) throws NegocioException {
-        return new OrdemServicoBO().alterarOrdemServico(ordemServico);
-    }
+	public void excluirOrdemServico(Integer id) throws NegocioException {
+		new OrdemServicoBO().excluirOrdemServico(id);
+	}
 
-    public OrdemServicoEntity buscarOrdemServicoPorId(int id) throws NegocioException {
-        return new OrdemServicoBO().buscarOrdemServicoPorId(id);
-    }
+	public String alterarOrdemServico(OrdemServicoEntity ordemServico) throws NegocioException {
+		return new OrdemServicoBO().alterarOrdemServico(ordemServico);
+	}
+
+	public OrdemServicoEntity buscarOrdemServicoPorId(Integer id) throws NegocioException {
+		return new OrdemServicoBO().buscarOrdemServicoPorId(id);
+	}
+
+	public List<OrdemServicoEntity> buscarOrdemServicoFiltrada(OrdemServicoEntity ordemServico)
+			throws NegocioException {
+		return new OrdemServicoBO().buscarOrdemServicoFiltrada(ordemServico);
+	}
 }

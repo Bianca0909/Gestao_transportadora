@@ -1,19 +1,11 @@
 package br.com.devti.gestaotransportadora.entity;
 
 public class UsuarioEntity {
-	private Long id;
+	private Integer id;
 	private String login;
 	private String senha;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public UsuarioEntity(String login, String senha, Long id) {
+	
+	public UsuarioEntity(Integer id, String login, String senha) {
 		this.id = id;
 		this.login = login;
 		this.senha = senha;
@@ -22,12 +14,17 @@ public class UsuarioEntity {
 	public UsuarioEntity() {
 		
 	}
-	public UsuarioEntity(Long id, String login) {
-		this.id = id;
-		this.login = login;
-		// TODO Auto-generated constructor stub
+
+
+	public Integer getId() {
+		return id;
 	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	
 	public String getLogin() {
 		return login;
 	}

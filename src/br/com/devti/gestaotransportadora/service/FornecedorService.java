@@ -1,11 +1,10 @@
 package br.com.devti.gestaotransportadora.service;
 
-import br.com.devti.gestaotransportadora.entity.ColaboradorEntity;
+import java.util.List;
+
 import br.com.devti.gestaotransportadora.entity.FornecedorEntity;
 import br.com.devti.gestaotransportadora.util.exception.NegocioException;
-import br.com.devtigestaotransportadora.bo.ColaboradorBO;
 import br.com.devtigestaotransportadora.bo.FornecedorBO;
-import java.util.List;
 
 public class FornecedorService {
 	
@@ -19,7 +18,7 @@ public class FornecedorService {
         return new FornecedorBO().listarFornecedores();
     }
 
-    public void excluirColaborador(int id) throws NegocioException {
+    public void excluirColaborador(Integer id) throws NegocioException {
         new FornecedorBO().excluirFornecedor(id);
     }
 
@@ -27,8 +26,11 @@ public class FornecedorService {
         return new FornecedorBO().alterarFornecedor(fornecedor);
     }
 
-    public FornecedorEntity buscarFornecedorPorId(int id) throws NegocioException {
+    public FornecedorEntity buscarFornecedorPorId(Integer id) throws NegocioException {
         return new FornecedorBO().buscarFornecedorPorId(id);
     }
-
+    
+    public List<FornecedorEntity> buscarUsuarioFiltrado(FornecedorEntity fornecedor) throws NegocioException {
+    	return new FornecedorBO().buscarUsuarioFiltrado(fornecedor);
+    	}
 }

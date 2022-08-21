@@ -1,18 +1,16 @@
 package br.com.devti.gestaotransportadora.entity;
 
-import java.util.UUID;
-
 public class ClienteEntity {
 
     private String email;
     private String name;
     private String birthday;
     private String cpf;
-    private int id;
+    private Integer id;
     
     
     
-    public ClienteEntity(int id, String name, String birthday, String cpf, String email) {
+    public ClienteEntity(Integer id, String name, String birthday, String cpf, String email) {
         this.id = id;
         this.name = name;
         this.birthday = birthday;
@@ -21,21 +19,17 @@ public class ClienteEntity {
         
     }
     
-    public ClienteEntity(Integer id, String name) {
-    	this.id = id;
-    	this.name = name;
-    }
 
     public ClienteEntity() {
         
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
 
     }
 
-    public void SetId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

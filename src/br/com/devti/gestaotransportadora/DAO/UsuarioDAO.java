@@ -42,7 +42,7 @@ public class UsuarioDAO {
 
 	public List<UsuarioEntity> listarUsuarios() throws NegocioException {
 
-		String sql = "SELECT id_usuario, login_usuario FROM usuario ORDER BY login_usuario";
+		String sql = "SELECT id_usuario, login_usuario, senha_usuario FROM usuario ORDER BY login_usuario";
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -54,7 +54,8 @@ public class UsuarioDAO {
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				UsuarioEntity usuario = new UsuarioEntity(rs.getLong("id_usuario"), rs.getString("login_usuario"));
+				UsuarioEntity usuario = new UsuarioEntity(rs.getInt("id_usuario"), rs.getString("login_usuario"),
+						rs.getString("senha_usuario"));
 				resultado.add(usuario);
 			}
 		} catch (SQLException e) {
@@ -72,7 +73,7 @@ public class UsuarioDAO {
 		return resultado;
 	}
 
-	public void excluirUsuario(Long id) throws NegocioException {
+	public void excluirUsuario(Integer id) throws NegocioException {
 
 		String sql = "DELETE FROM usuario WHERE id_usuario = ?";
 
@@ -96,7 +97,7 @@ public class UsuarioDAO {
 		}
 	}
 
-	public UsuarioEntity buscarUsuarioPorId(Long id) throws NegocioException {
+	public UsuarioEntity buscarUsuarioPorId(Integer id) throws NegocioException {
 
 		String sql = "SELECT id_usuario, login_usuario FROM usuario WHERE id_usuario = ?";
 
@@ -113,7 +114,7 @@ public class UsuarioDAO {
 
 			if (rs.next()) {
 				usuarioEncontrado = new UsuarioEntity();
-				usuarioEncontrado.setId(rs.getLong("id_usuario"));
+				usuarioEncontrado.setId(rs.getInt("id_usuario"));
 				usuarioEncontrado.setLogin(rs.getString("login_usuario"));
 			}
 
@@ -134,7 +135,7 @@ public class UsuarioDAO {
 
 	public String alterarUsuario(UsuarioEntity usuario) throws NegocioException {
 
-		String sql = "UPDATE usuario SET login_usuario = ?, senha_usuario WHERE id_usuario = ?";
+		String sql = "UPDATE usuario SET login_usuario = ?, senha_usuario = ? WHERE id_usuario = ?";
 
 		PreparedStatement ps = null;
 
@@ -142,12 +143,14 @@ public class UsuarioDAO {
 			ps = ConexaoMySQL.getConexao().prepareStatement(sql);
 
 			ps.setString(1, usuario.getLogin());
+			ps.setString(2, usuario.getSenha());
+			ps.setInt(3, usuario.getId());
 
 			ps.execute();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new NegocioException("Erro ao atualizar usuário");
+			throw new NegocioException("Erro ao atualizar cliente");
 		} finally {
 			try {
 				ps.close();
@@ -156,32 +159,32 @@ public class UsuarioDAO {
 			}
 		}
 
-		return "Usuário alterado com sucesso";
+		return "Cliente alterado com sucesso";
 	}
 
 	public List<UsuarioEntity> buscarUsuarioFiltrado(UsuarioEntity usuario) throws NegocioException {
 
-		String sql = "SELECT id_usuario, login_usuario FROM usuario WHERE login_usuario = ?";
+		String sql = "SELECT id_usuario, login_usuario, senha_usuario FROM usuario";
 
-		List<UsuarioEntity> resultado = new ArrayList<>();
+		List<UsuarioEntity> resultado = new ArrayList<UsuarioEntity>();
 
-		boolean adicionaWhere = false;
+		boolean adicionaWhere = true;
 
-		if (usuario != null) {
-			adicionaWhere = true;
-			sql += " WHERE ";
-			sql += "id_usuario = ?";
+		if (usuario.getId() != null) {
+			adicionaWhere = false;
+			sql += " WHERE";
+			sql += " id_usuario = ?";
 		}
 		if (usuario.getLogin() != null && !usuario.getLogin().equals("")) {
 			if (adicionaWhere) {
 				sql += " WHERE ";
+				adicionaWhere = false;
 			} else {
 				sql += " AND";
 			}
-			sql += "login_usuario LIKE ?";
+			sql += " login_usuario LIKE ?";
 		}
 		System.out.println(sql);
-
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 
@@ -200,29 +203,24 @@ public class UsuarioDAO {
 					ps.setString(indice, usuario.getLogin() + "%");
 				}
 			}
-
 			rs = ps.executeQuery();
-
 			while (rs.next()) {
 				UsuarioEntity usuarioResultado = new UsuarioEntity();
+				usuarioResultado.setId(rs.getInt("id_usuario"));
 				usuarioResultado.setLogin(rs.getString("login_usuario"));
 				resultado.add(usuarioResultado);
 			}
-
 		} catch (SQLException e) {
-
-			throw new NegocioException("Busca filtrada problemática");
+			throw new NegocioException("Busca inválida");
 		} finally {
 			try {
 				ps.close();
 				rs.close();
-			} catch (SQLException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-
 		return resultado;
-
 	}
 
 }

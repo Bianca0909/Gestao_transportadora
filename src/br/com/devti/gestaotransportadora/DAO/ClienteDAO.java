@@ -1,13 +1,14 @@
 package br.com.devti.gestaotransportadora.DAO;
 
-import br.com.devti.gestaotransportadora.entity.ClienteEntity;
-import br.com.devti.gestaotransportadora.util.exception.NegocioException;
-import br.com.devti.gestaousuario.core.dao.connection.ConexaoMySQL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import br.com.devti.gestaotransportadora.entity.ClienteEntity;
+import br.com.devti.gestaotransportadora.util.exception.NegocioException;
+import br.com.devti.gestaousuario.core.dao.connection.ConexaoMySQL;
 
 public class ClienteDAO {
 
@@ -43,7 +44,7 @@ public class ClienteDAO {
 
 	public List<ClienteEntity> listarClientes() throws NegocioException {
 
-		String sql = "SELECT id_cliente, nome_cliente FROM cliente ORDER BY nome_cliente";
+		String sql = "SELECT id_cliente, nome_cliente, email_cliente, data_nascimento_cliente, cpf_cliente  FROM cliente ORDER BY nome_cliente";
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -55,7 +56,7 @@ public class ClienteDAO {
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				ClienteEntity cliente = new ClienteEntity(rs.getInt("id"), rs.getString("nome_cliente"));
+				ClienteEntity cliente = new ClienteEntity(rs.getInt("id"), rs.getString("nome_cliente"), rs.getString("email_cliente"), rs.getString("data_nascimento_cliente"), rs.getString("cpf_cliente"));
 				resultado.add(cliente);
 			}
 		} catch (SQLException e) {
@@ -73,7 +74,7 @@ public class ClienteDAO {
 		return resultado;
 	}
 
-	public void excluirCliente(int id) throws NegocioException {
+	public void excluirCliente(Integer id) throws NegocioException {
 
 		String sql = "DELETE FROM cliente WHERE id_cliente = ?";
 
@@ -97,7 +98,7 @@ public class ClienteDAO {
 		}
 	}
 
-	public ClienteEntity buscarClientePorId(int id) throws NegocioException {
+	public ClienteEntity buscarClientePorId(Integer id) throws NegocioException {
 
 		String sql = "SELECT id_cliente, nome_cliente FROM cliente WHERE id_cliente = ?";
 
@@ -114,7 +115,7 @@ public class ClienteDAO {
 
 			if (rs.next()) {
 				clienteEncontrado = new ClienteEntity();
-				clienteEncontrado.SetId(rs.getInt("id_cliente"));
+				clienteEncontrado.setId(rs.getInt("id_cliente"));
 				clienteEncontrado.setName(rs.getString("nome_cliente"));
 			}
 
@@ -145,7 +146,7 @@ public class ClienteDAO {
 			ps.setString(2, cliente.getEmail());
 			ps.setString(3, cliente.getBirthday());
 			ps.setString(4, cliente.getCpf());
-			ps.setInt(5, cliente.getId());
+			ps.setLong(5, cliente.getId());
 			ps.execute();
 
 		} catch (SQLException e) {
@@ -160,6 +161,109 @@ public class ClienteDAO {
 		}
 
 		return "Cliente alterado com sucesso";
+	}
+
+	public List<ClienteEntity> buscarUsuarioFiltrado(ClienteEntity cliente) throws NegocioException {
+
+		String sql = "SELECT id_cliente, nome_cliente, email_cliente, data_nascimento_cliente, cpf_cliente FROM cliente";
+
+		List<ClienteEntity> resultado = new ArrayList<ClienteEntity>();
+
+		boolean adicionaWhere = true;
+
+		if (cliente.getId() != null) {
+			adicionaWhere = false;
+			sql += " WHERE";
+			sql += " id_usuario = ?";
+		}
+		if (cliente.getName() != null && !cliente.getName().equals("")) {
+			if (adicionaWhere) {
+				sql += " WHERE ";
+				adicionaWhere = false;
+			} else {
+				sql += " AND";
+			}
+			sql += " nome_cliente LIKE ?";
+		}
+		if(cliente.getCpf() != null && !cliente.getCpf().equals("")) {
+			if (adicionaWhere) {
+				sql += " WHERE ";
+				adicionaWhere = false;
+			} else {
+				sql += " AND";
+			}
+			sql += " cpf_cliente LIKE ?";
+		}
+		if(cliente.getEmail() != null && !cliente.getEmail().equals("")) {
+			if (adicionaWhere) {
+				sql += " WHERE ";
+				adicionaWhere = false;
+			} else {
+				sql += " AND";
+			}
+			sql += " email_cliente LIKE ?";
+		}
+		if(cliente.getBirthday() != null && !cliente.getBirthday().equals("")) {
+			if (adicionaWhere) {
+				sql += " WHERE ";
+				adicionaWhere = false;
+			} else {
+				sql += " AND";
+			}
+			sql += " data_nascimento_cliente LIKE ?";
+		}
+		System.out.println(sql);
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			ps = ConexaoMySQL.getConexao().prepareStatement(sql);
+
+			int indice = 0;
+
+			if (cliente != null) {
+				if (cliente.getId() != null) {
+					indice = indice + 1;
+					ps.setLong(indice, cliente.getId());
+				}
+				if (cliente.getName() != null && !cliente.getName().equals("")) {
+					indice = indice + 1;
+					ps.setString(indice, cliente.getName() + "%");
+				}
+				if (cliente.getEmail() != null && !cliente.getEmail().equals("")) {
+					indice = indice + 1;
+					ps.setString(indice, cliente.getEmail() + "%");
+				}
+				if (cliente.getBirthday() != null && !cliente.getBirthday().equals("")) {
+					indice = indice + 1;
+					ps.setString(indice, cliente.getBirthday() + "%");
+				}
+				if (cliente.getCpf() != null && !cliente.getCpf().equals("")) {
+					indice = indice + 1;
+					ps.setString(indice, cliente.getCpf() + "%");
+				}
+			}
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				ClienteEntity clienteResultado = new ClienteEntity();
+				clienteResultado.setId(rs.getInt("id_cliente"));
+				clienteResultado.setName(rs.getString("nome_cliente"));
+				clienteResultado.setEmail(rs.getString("email_cliente"));
+				clienteResultado.setBirthday(rs.getString("data_nascimento_cliente"));
+				clienteResultado.setCpf(rs.getString("cpf_cliente"));
+				resultado.add(clienteResultado);
+			}
+		} catch (SQLException e) {
+			throw new NegocioException("Busca inválida");
+		} finally {
+			try {
+				ps.close();
+				rs.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return resultado;
 	}
 
 }

@@ -1,9 +1,10 @@
 package br.com.devti.gestaotransportadora.service;
 
+import java.util.List;
+
 import br.com.devti.gestaotransportadora.entity.ClienteEntity;
 import br.com.devti.gestaotransportadora.util.exception.NegocioException;
 import br.com.devtigestaotransportadora.bo.ClienteBO;
-import java.util.List;
 
 public class ClienteService {
 	
@@ -21,7 +22,7 @@ public class ClienteService {
         return new ClienteBO().listarClientes();
     }
 
-    public void excluirCliente(int id) throws NegocioException {
+    public void excluirCliente(Integer id) throws NegocioException {
         new ClienteBO().excluirCliente(id);
     }
 
@@ -29,7 +30,10 @@ public class ClienteService {
         return new ClienteBO().alterarCliente(cliente);
     }
 
-    public ClienteEntity buscarClientePorId(int id) throws NegocioException {
+    public ClienteEntity buscarClientePorId(Integer id) throws NegocioException {
         return new ClienteBO().buscarClientePorId(id);
     }
+    public List<ClienteEntity> buscarUsuarioFiltrado(ClienteEntity cliente) throws NegocioException {
+    	return new ClienteBO().buscarUsuarioFiltrado(cliente);
+    	}
 }
