@@ -8,7 +8,7 @@ Projeto final DEVTISUL - Módulo 2
   - LISTAR <span style='font-size:100px;'>&#9989;</span>,
   - DELETAR <span style='font-size:100px;'>&#9989;</span>,
   - BUSCAR POR ID <span style='font-size:100px;'>&#9989;</span>,
-  - PESQUISA FILTRADA <span style='font-size:100px;'>&#9989;</span> - Está com erro em filtrar OS pelo valor,
+  - PESQUISA FILTRADA <span style='font-size:100px;'>&#10060;</span> - Está com erro em filtrar OS pelo valor,
 
  
 - CRUD INTERFACE GRÁFICA:
