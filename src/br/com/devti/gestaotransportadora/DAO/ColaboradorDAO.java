@@ -161,9 +161,9 @@ public class ColaboradorDAO {
 		return "Colaborador alterado com sucesso";
 	}
 
-	public List<ColaboradorEntity> buscarUsuarioFiltrado(ColaboradorEntity colaborador) throws NegocioException {
+	public List<ColaboradorEntity> buscarColaboradorFiltrado(ColaboradorEntity colaborador) throws NegocioException {
 
-		String sql = "SELECT id_colaborador, nome_colaborador, cpf_colaborador, data_nascimento_colaborador, psi_colaborador FROM colaborador";
+		String sql = "SELECT id_colaborador, nome_colaborador, cpf_colaborador, data_nascimento_colaborador, pis_colaborador FROM colaborador";
 
 		List<ColaboradorEntity> resultado = new ArrayList<ColaboradorEntity>();
 
@@ -244,7 +244,7 @@ public class ColaboradorDAO {
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				ColaboradorEntity colaboradorResultado = new ColaboradorEntity();
-				colaboradorResultado.setId(rs.getInt("id_usuario"));
+				colaboradorResultado.setId(rs.getInt("id_colaborador"));
 				colaboradorResultado.setName(rs.getString("nome_colaborador"));
 				colaboradorResultado.setCpf(rs.getString("cpf_colaborador"));
 				colaboradorResultado.setBirthday(rs.getString("data_nascimento_colaborador"));

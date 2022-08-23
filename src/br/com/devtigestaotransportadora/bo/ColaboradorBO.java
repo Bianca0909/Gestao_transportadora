@@ -47,7 +47,7 @@ public class ColaboradorBO {
         return new ColaboradorDAO().buscarColaboradorPorId(id);
     }
 
-    public List<ColaboradorEntity> buscarUsuarioFiltrado(ColaboradorEntity colaborador) throws NegocioException {
-    	return new ColaboradorDAO().buscarUsuarioFiltrado(colaborador);
+    public List<ColaboradorEntity> buscarColaboradorFiltrado(ColaboradorEntity colaborador) throws NegocioException {
+    	return new ColaboradorDAO().buscarColaboradorFiltrado(colaborador);
     }
 }

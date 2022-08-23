@@ -28,7 +28,7 @@ public class ColaboradorService {
     public ColaboradorEntity buscarColaboradorPorId(Integer id) throws NegocioException {
         return new ColaboradorBO().buscarColaboradorPorId(id);
     }
-    public List<ColaboradorEntity> buscarUsuarioFiltrado(ColaboradorEntity colaborador) throws NegocioException {
-    	return new ColaboradorBO().buscarUsuarioFiltrado(colaborador);
+    public List<ColaboradorEntity> buscarColaboradorFiltrado(ColaboradorEntity colaborador) throws NegocioException {
+    	return new ColaboradorBO().buscarColaboradorFiltrado(colaborador);
     	}
 }
