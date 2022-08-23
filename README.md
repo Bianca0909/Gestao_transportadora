@@ -7,7 +7,7 @@ Projeto final DEVTISUL - Módulo 2
   - ALTERAR <span style='font-size:100px;'>&#9989;</span>,
   - LISTAR <span style='font-size:100px;'>&#9989;</span>,
   - DELETAR <span style='font-size:100px;'>&#9989;</span>,
-  - BUSCAR POR ID <span style='font-size:100px;'>&#10067;</span>,
+  - BUSCAR POR ID <span style='font-size:100px;'>&#9989;</span>,
   - PESQUISA FILTRADA <span style='font-size:100px;'>&#10067;</span>,
 
  
