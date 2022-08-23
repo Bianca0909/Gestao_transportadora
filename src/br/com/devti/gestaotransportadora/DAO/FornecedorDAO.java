@@ -39,7 +39,7 @@ public class FornecedorDAO {
 
 	public List<FornecedorEntity> listarFornecedores() throws NegocioException {
 
-		String sql = "SELECT id_fornecedor, nome_fornecedor, cnpj_fornecedor FROM fornecedor ORDER BY nome_fornecedor";
+		String sql = "SELECT id_fornecedor, nome_fornecedor, cnpj_fornecedor, data_registro_fornecedor FROM fornecedor ORDER BY nome_fornecedor";
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -52,7 +52,7 @@ public class FornecedorDAO {
 
 			while (rs.next()) {
 				FornecedorEntity fornecedor = new FornecedorEntity(rs.getInt("id_fornecedor"),
-						rs.getString("nome_fornecedor"), rs.getString("cnpj_fornecedor"),
+						rs.getString("cnpj_fornecedor"), rs.getString("nome_fornecedor"),
 						rs.getString("data_registro_fornecedor"));
 
 				resultado.add(fornecedor);

@@ -56,7 +56,7 @@ public class ClienteDAO {
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				ClienteEntity cliente = new ClienteEntity(rs.getInt("id"), rs.getString("nome_cliente"), rs.getString("email_cliente"), rs.getString("data_nascimento_cliente"), rs.getString("cpf_cliente"));
+				ClienteEntity cliente = new ClienteEntity(rs.getInt("id_cliente"), rs.getString("nome_cliente"), rs.getString("email_cliente"), rs.getString("data_nascimento_cliente"), rs.getString("cpf_cliente"));
 				resultado.add(cliente);
 			}
 		} catch (SQLException e) {

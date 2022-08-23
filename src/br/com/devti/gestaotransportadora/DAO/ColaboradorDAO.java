@@ -40,7 +40,7 @@ public class ColaboradorDAO {
 
 	public List<ColaboradorEntity> listarColaboradores() throws NegocioException {
 
-		String sql = "SELECT id_colaborador, nome_colaborador, pis_colaborador FROM colaborador ORDER BY nome_colaborador";
+		String sql = "SELECT id_colaborador, nome_colaborador, cpf_colaborador, pis_colaborador, data_nascimento_colaborador FROM colaborador ORDER BY nome_colaborador";
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -53,8 +53,7 @@ public class ColaboradorDAO {
 
 			while (rs.next()) {
 				ColaboradorEntity colaborador = new ColaboradorEntity(rs.getInt("id_colaborador"),
-						rs.getString("nome_colaborador"), rs.getString("cpf_colaborador"),
-						rs.getString("data_nascimento_colaborador"), rs.getString("pis_colaborador"));
+						rs.getString("nome_colaborador"), rs.getString("data_nascimento_colaborador"), rs.getString("pis_colaborador"), rs.getString("cpf_colaborador"));
 				resultado.add(colaborador);
 			}
 		} catch (SQLException e) {
