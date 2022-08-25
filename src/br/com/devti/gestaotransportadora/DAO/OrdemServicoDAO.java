@@ -57,8 +57,9 @@ public class OrdemServicoDAO {
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				OrdemServicoEntity ordemServico = new OrdemServicoEntity(rs.getInt("id_ordem_servico"), rs.getString("endereco_os"),
-						rs.getInt("cliente_id"), rs.getInt("fornecedor_id"), rs.getInt("colaborador_id"), rs.getDouble("valor"));
+				OrdemServicoEntity ordemServico = new OrdemServicoEntity(rs.getInt("id_ordem_servico"),
+						rs.getString("endereco_os"), rs.getInt("cliente_id"), rs.getInt("fornecedor_id"),
+						rs.getInt("colaborador_id"), rs.getDouble("valor"));
 				resultado.add(ordemServico);
 			}
 		} catch (SQLException e) {
@@ -118,11 +119,11 @@ public class OrdemServicoDAO {
 			if (rs.next()) {
 				ordemServicoEncontrada = new OrdemServicoEntity();
 				ordemServicoEncontrada.setId(rs.getInt("id_ordem_servico"));
-						ordemServicoEncontrada.setClienteId(rs.getInt("Cliente_id"));
-						ordemServicoEncontrada.setColaboradorId(rs.getInt("Colaborador_id"));
-						ordemServicoEncontrada.setFornecedorId(rs.getInt("Fornecedor_id"));
-						ordemServicoEncontrada.setEndereco(rs.getString("Endereco_os"));
-						ordemServicoEncontrada.setValor(rs.getDouble("valor"));
+				ordemServicoEncontrada.setClienteId(rs.getInt("Cliente_id"));
+				ordemServicoEncontrada.setColaboradorId(rs.getInt("Colaborador_id"));
+				ordemServicoEncontrada.setFornecedorId(rs.getInt("Fornecedor_id"));
+				ordemServicoEncontrada.setEndereco(rs.getString("Endereco_os"));
+				ordemServicoEncontrada.setValor(rs.getDouble("valor"));
 
 			}
 
@@ -148,7 +149,7 @@ public class OrdemServicoDAO {
 
 		try {
 			ps = ConexaoMySQL.getConexao().prepareStatement(sql);
-			
+
 			ps.setString(1, ordemServico.getEndereco());
 			ps.setInt(2, ordemServico.getClienteId());
 			ps.setInt(3, ordemServico.getFornecedorId());
@@ -171,7 +172,8 @@ public class OrdemServicoDAO {
 		return "Ordem de serviço alterada com sucesso";
 	}
 
-	public List<OrdemServicoEntity> buscarOrdemServicoFiltrada(OrdemServicoEntity ordemServico) throws NegocioException {
+	public List<OrdemServicoEntity> buscarOrdemServicoFiltrada(OrdemServicoEntity ordemServico)
+			throws NegocioException {
 
 		String sql = "SELECT id_ordem_servico, cliente_id, fornecedor_id, colaborador_id, endereco_os, valor FROM os";
 
