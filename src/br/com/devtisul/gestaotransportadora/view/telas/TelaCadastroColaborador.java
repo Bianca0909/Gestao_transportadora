@@ -84,6 +84,7 @@ public class TelaCadastroColaborador extends JFrame {
 		
 		JButton btnNewButton = new JButton("VOLTAR");
 		btnNewButton.setBackground(Color.ORANGE);
+	
 		
 		JButton btnNewButton_1 = new JButton("SAIR");
 		btnNewButton_1.setBackground(Color.RED);

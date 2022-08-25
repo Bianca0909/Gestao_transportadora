@@ -19,9 +19,9 @@ import javax.swing.JButton;
 public class TelaCadastroFornecedor extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField nomeField;
+	private JTextField documentoField;
+	private JTextField dataRegistroField;
 
 	/**
 	 * Launch the application.
@@ -56,29 +56,29 @@ public class TelaCadastroFornecedor extends JFrame {
 		lblNewLabel_1.setForeground(Color.BLUE);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 17));
 		
-		JLabel lblNewLabel_2 = new JLabel("Nome:");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		JLabel nomeLabel = new JLabel("Nome:");
+		nomeLabel.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		
-		textField = new JTextField();
-		textField.setColumns(10);
+		nomeField = new JTextField();
+		nomeField.setColumns(10);
 		
-		JLabel lblNewLabel_3 = new JLabel("Documento:");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		JLabel documentoLabel = new JLabel("Documento:");
+		documentoLabel.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
+		documentoField = new JTextField();
+		documentoField.setColumns(10);
 		
-		JLabel lblNewLabel_4 = new JLabel("Data de registro:");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		JLabel dataRegistroLabel = new JLabel("Data de registro:");
+		dataRegistroLabel.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
+		dataRegistroField = new JTextField();
+		dataRegistroField.setColumns(10);
 		
-		JButton btnNewButton = new JButton("VOLTAR");
-		btnNewButton.setBackground(Color.ORANGE);
+		JButton voltarButton = new JButton("VOLTAR");
+		voltarButton.setBackground(Color.ORANGE);
 		
-		JButton btnNewButton_1 = new JButton("SAIR");
-		btnNewButton_1.setBackground(Color.RED);
+		JButton sairButton = new JButton("SAIR");
+		sairButton.setBackground(Color.RED);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -95,24 +95,24 @@ public class TelaCadastroFornecedor extends JFrame {
 							.addGap(50)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
+									.addComponent(nomeLabel, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(textField, GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE))
+									.addComponent(nomeField, GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE))
 								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
 									.addGroup(gl_contentPane.createSequentialGroup()
-										.addComponent(lblNewLabel_4)
+										.addComponent(dataRegistroLabel)
 										.addPreferredGap(ComponentPlacement.UNRELATED)
-										.addComponent(textField_2))
+										.addComponent(dataRegistroField))
 									.addGroup(gl_contentPane.createSequentialGroup()
-										.addComponent(lblNewLabel_3)
+										.addComponent(documentoLabel)
 										.addPreferredGap(ComponentPlacement.UNRELATED)
-										.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE))))))
+										.addComponent(documentoField, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE))))))
 					.addContainerGap(65, Short.MAX_VALUE))
 				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
 					.addGap(21)
-					.addComponent(btnNewButton)
+					.addComponent(voltarButton)
 					.addPreferredGap(ComponentPlacement.RELATED, 385, Short.MAX_VALUE)
-					.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)
+					.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)
 					.addGap(20))
 		);
 		gl_contentPane.setVerticalGroup(
@@ -124,20 +124,20 @@ public class TelaCadastroFornecedor extends JFrame {
 					.addComponent(lblNewLabel_1)
 					.addGap(32)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
+						.addComponent(nomeLabel, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+						.addComponent(nomeField, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_3)
-						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))
+						.addComponent(documentoLabel)
+						.addComponent(documentoField, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))
 					.addGap(18)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_4)
-						.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
+						.addComponent(dataRegistroLabel)
+						.addComponent(dataRegistroField, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
 					.addGap(18)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnNewButton_1, GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-						.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
+						.addComponent(sairButton, GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+						.addComponent(voltarButton, GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
 					.addContainerGap())
 		);
 		contentPane.setLayout(gl_contentPane);
