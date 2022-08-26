@@ -16,7 +16,7 @@ Projeto final DEVTISUL - Módulo 2
   - TELA DE MENU <span style='font-size:100px;'>&#9989;</span>,
   - CADASTRAR <span style='font-size:100px;'>&#9989;</span>,
   - ALTERAR <span style='font-size:100px;'>&#10060;</span>,
-  - LISTAR <span style='font-size:100px;'>&#10062;</span>,
+  - LISTAR <span style='font-size:100px;'>&#9989;</span>,
   - DELETAR <span style='font-size:100px;'>&#10060;</span>,
   - BUSCAR POR ID <span style='font-size:100px;'>&#10060;</span>,
   - PESQUISA FILTRADA <span style='font-size:100px;'>&#10060;</span>
