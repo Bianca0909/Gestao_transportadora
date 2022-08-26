@@ -42,86 +42,132 @@ public class TelaMenuCadastro extends JFrame {
 	 */
 	public TelaMenuCadastro() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 590, 418);
+		setBounds(100, 100, 800, 523);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		
+
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\manutencao\\Desktop\\Gestão_de_Transportadora-removebg-preview.png"));
-		
+		lblNewLabel.setIcon(
+				new ImageIcon("C:\\Users\\manutencao\\Desktop\\Gestão_de_Transportadora-removebg-preview.png"));
+
 		JLabel lblNewLabel_1 = new JLabel("Cadastros");
 		lblNewLabel_1.setForeground(Color.BLUE);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 25));
-		
+
 		JButton cadastroClienteButton = new JButton("CLIENTE");
-		
-		JButton cadastroFornecedorButton = new JButton("FORNECEDOR");
-		
-		JButton cadastroUsuarioButton = new JButton("USUARIO");
-		
-		JButton cadastroColaboradorButton = new JButton("COLABORADOR");
-		cadastroColaboradorButton.addActionListener(new ActionListener() {
+		cadastroClienteButton.setBackground(Color.CYAN);
+		cadastroClienteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				TelaCadastroCliente cadastroCliente = new TelaCadastroCliente();
+				cadastroCliente.setVisible(true);
+				dispose();
+
 			}
 		});
-		
+
+		JButton cadastroFornecedorButton = new JButton("FORNECEDOR");
+		cadastroFornecedorButton.setBackground(Color.PINK);
+		cadastroFornecedorButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaCadastroFornecedor cadastroFornecedor = new TelaCadastroFornecedor();
+				cadastroFornecedor.setVisible(true);
+				dispose();
+
+			}
+		});
+
+		JButton cadastroUsuarioButton = new JButton("USUARIO");
+		cadastroUsuarioButton.setBackground(Color.YELLOW);
+		cadastroUsuarioButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaCadastroUsuario cadastroUsuario = new TelaCadastroUsuario();
+				cadastroUsuario.setVisible(true);
+				dispose();
+
+			}
+		});
+
+		JButton cadastroColaboradorButton = new JButton("COLABORADOR");
+		cadastroColaboradorButton.setBackground(Color.MAGENTA);
+		cadastroColaboradorButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaCadastroColaborador cadastroColaborador = new TelaCadastroColaborador();
+				cadastroColaborador.setVisible(true);
+				dispose();
+			}
+		});
+
 		JButton voltarButton = new JButton("VOLTAR");
 		voltarButton.setBackground(Color.ORANGE);
 		voltarButton.setForeground(Color.BLACK);
-		
+		voltarButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaMenu menu = new TelaMenu();
+				menu.setVisible(true);
+				dispose();
+
+			}
+		});
+
 		JButton sairButton = new JButton("SAIR");
+		sairButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+
+			}
+		});
 		sairButton.setBackground(Color.RED);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+		gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup().addGap(55).addGroup(gl_contentPane
+						.createParallelGroup(Alignment.LEADING, false)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(21)
-							.addComponent(cadastroClienteButton, GroupLayout.PREFERRED_SIZE, 104, GroupLayout.PREFERRED_SIZE))
+								.addComponent(cadastroClienteButton, GroupLayout.PREFERRED_SIZE, 124,
+										GroupLayout.PREFERRED_SIZE)
+								.addGap(41)
+								.addComponent(cadastroUsuarioButton, GroupLayout.PREFERRED_SIZE, 128,
+										GroupLayout.PREFERRED_SIZE)
+								.addGap(39)
+								.addComponent(cadastroColaboradorButton, GroupLayout.PREFERRED_SIZE, 140,
+										GroupLayout.PREFERRED_SIZE)
+								.addGap(38).addComponent(cadastroFornecedorButton, GroupLayout.PREFERRED_SIZE, 146,
+										GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(29)
-							.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE)))
-					.addGap(22)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(cadastroUsuarioButton, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE)
-							.addGap(18)
-							.addComponent(cadastroColaboradorButton, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
-							.addGap(18)
-							.addComponent(cadastroFornecedorButton, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE))
-						.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE))
-					.addGap(28))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(55)
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 455, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(54, Short.MAX_VALUE))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(212)
-					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 136, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(216, Short.MAX_VALUE))
-		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblNewLabel_1)
-					.addGap(30)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-						.addComponent(cadastroClienteButton, GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-						.addGroup(Alignment.LEADING, gl_contentPane.createParallelGroup(Alignment.BASELINE)
-							.addComponent(cadastroFornecedorButton, GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-							.addComponent(cadastroColaboradorButton, GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
-							.addComponent(cadastroUsuarioButton, GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)))
-					.addPreferredGap(ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-						.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap())
-		);
+								.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE)))
+						.addGap(63))
+				.addGroup(
+						gl_contentPane.createSequentialGroup().addContainerGap(331, Short.MAX_VALUE)
+								.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 136,
+										GroupLayout.PREFERRED_SIZE)
+								.addGap(307))
+				.addGroup(Alignment.LEADING,
+						gl_contentPane.createSequentialGroup().addGap(177)
+								.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 455, GroupLayout.PREFERRED_SIZE)
+								.addContainerGap(142, Short.MAX_VALUE)));
+		gl_contentPane.setVerticalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING).addGroup(gl_contentPane
+				.createSequentialGroup()
+				.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)
+				.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(lblNewLabel_1).addGap(18)
+				.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup().addGap(14)
+								.addComponent(cadastroFornecedorButton, GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE))
+						.addGroup(gl_contentPane.createSequentialGroup().addGap(18).addGroup(gl_contentPane
+								.createParallelGroup(Alignment.LEADING)
+								.addComponent(cadastroUsuarioButton, GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+										.addComponent(cadastroClienteButton, GroupLayout.PREFERRED_SIZE, 109,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(cadastroColaboradorButton, GroupLayout.DEFAULT_SIZE, 114,
+												Short.MAX_VALUE)))))
+				.addGap(82)
+				.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
+						.addComponent(sairButton, GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE))
+				.addGap(51)));
 		contentPane.setLayout(gl_contentPane);
 	}
 
