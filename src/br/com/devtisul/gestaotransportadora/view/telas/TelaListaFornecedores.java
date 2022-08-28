@@ -105,15 +105,30 @@ public class TelaListaFornecedores extends JFrame {
 			}
 			}
 		});
+		
+		JButton editarButton = new JButton("EDITAR");
+		editarButton.setEnabled(false);
+		editarButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					FornecedorEntity fornecedorSelecionado = fornecedores.get(table.getSelectedRow());
+	                TelaCadastroFornecedor telaCadastroFornecedor = new TelaCadastroFornecedor();
+	                telaCadastroFornecedor.carregarFornecedorPorId(fornecedorSelecionado.getId());
+	                telaCadastroFornecedor.setVisible(true);
+	                dispose();
+			}
+		});
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap(20, Short.MAX_VALUE)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-								.addComponent(excluirButton, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addComponent(editarButton, GroupLayout.PREFERRED_SIZE, 82, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addComponent(excluirButton, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE))
 								.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
 									.addGroup(gl_contentPane.createSequentialGroup()
 										.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 82, GroupLayout.PREFERRED_SIZE)
@@ -121,7 +136,7 @@ public class TelaListaFornecedores extends JFrame {
 										.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 82, GroupLayout.PREFERRED_SIZE))
 									.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 826, GroupLayout.PREFERRED_SIZE)))
 							.addGap(22))
-						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+						.addGroup(gl_contentPane.createSequentialGroup()
 							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 272, GroupLayout.PREFERRED_SIZE)
 							.addGap(297))))
 		);
@@ -131,7 +146,9 @@ public class TelaListaFornecedores extends JFrame {
 					.addGap(27)
 					.addComponent(lblNewLabel)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(excluirButton, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(editarButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(excluirButton, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 315, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
@@ -148,6 +165,7 @@ public class TelaListaFornecedores extends JFrame {
 //				JOptionPane.showMessageDialog(null, table.getSelectedRow());
 //				FornecedorEntity fornecedor = fornecedores.get(table.getSelectedRow());
 				excluirButton.setEnabled(true);
+				editarButton.setEnabled(true);
 
 			}
 		});

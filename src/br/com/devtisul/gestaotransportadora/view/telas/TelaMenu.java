@@ -63,19 +63,6 @@ public class TelaMenu extends JFrame {
 			}
 		});
 
-		JButton buscaButton = new JButton("BUSCA");
-		buscaButton.setBackground(Color.ORANGE);
-		buscaButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaMenuBusca busca = new TelaMenuBusca();
-				busca.setVisible(true);
-				dispose();
-			}
-		});
-
-		JButton alteracaoButton = new JButton("ALTERAÇÃO");
-		alteracaoButton.setBackground(Color.CYAN);
-
 		JButton sairButton = new JButton("SAIR");
 		sairButton.setBackground(Color.RED);
 		sairButton.setForeground(Color.BLACK);
@@ -110,29 +97,26 @@ public class TelaMenu extends JFrame {
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-					.addGap(37)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
-						.addComponent(alteracaoButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(buscaButton, GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(consultaButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(cadastroButton, GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
-					.addPreferredGap(ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE)
-					.addGap(44)
-					.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
-					.addGap(45))
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(176)
 					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 434, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(311, Short.MAX_VALUE))
-				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-					.addContainerGap(309, Short.MAX_VALUE)
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 183, GroupLayout.PREFERRED_SIZE)
-					.addGap(205))
+					.addContainerGap(87, Short.MAX_VALUE))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(136)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+								.addComponent(consultaButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(cadastroButton, GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
+							.addPreferredGap(ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+							.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addContainerGap(309, Short.MAX_VALUE)
+							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 183, GroupLayout.PREFERRED_SIZE)))
+					.addGap(83)
+					.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
+					.addGap(45))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -144,16 +128,12 @@ public class TelaMenu extends JFrame {
 					.addGap(34)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(buscaButton, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)
-								.addComponent(cadastroButton, GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
+							.addComponent(cadastroButton, GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
 							.addGap(18)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(alteracaoButton, GroupLayout.PREFERRED_SIZE, 121, GroupLayout.PREFERRED_SIZE)
-								.addComponent(consultaButton, GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)))
+							.addComponent(consultaButton, GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
 						.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-							.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
-							.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)
+							.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)))
 					.addGap(52))
 		);
 		contentPane.setLayout(gl_contentPane);

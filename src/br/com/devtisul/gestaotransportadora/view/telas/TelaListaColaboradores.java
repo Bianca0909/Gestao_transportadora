@@ -106,15 +106,30 @@ public class TelaListaColaboradores extends JFrame {
 				}
 			}
 		});
+		
+		JButton editarButton = new JButton("EDITAR");
+		editarButton.setEnabled(false);
+		editarButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ColaboradorEntity colaboradorSelecionado = colaboradores.get(table.getSelectedRow());
+                TelaCadastroColaborador telaCadastroColaborador = new TelaCadastroColaborador();
+                telaCadastroColaborador.carregarColaboradorPorId(colaboradorSelecionado.getId());
+                telaCadastroColaborador.setVisible(true);
+                dispose();
+			}
+		});
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap(22, Short.MAX_VALUE)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 331, GroupLayout.PREFERRED_SIZE)
-							.addGap(163)
+							.addGap(50)
+							.addComponent(editarButton, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(excluirButton, GroupLayout.PREFERRED_SIZE, 109, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
 							.addGroup(gl_contentPane.createSequentialGroup()
@@ -133,7 +148,9 @@ public class TelaListaColaboradores extends JFrame {
 							.addComponent(lblNewLabel))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(21)
-							.addComponent(excluirButton, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)))
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+								.addComponent(excluirButton, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+								.addComponent(editarButton, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 372, GroupLayout.PREFERRED_SIZE)
 					.addGap(37)
@@ -151,6 +168,7 @@ public class TelaListaColaboradores extends JFrame {
 //				JOptionPane.showMessageDialog(null, table.getSelectedRow());
 //				ColaboradorEntity colaborador = colaboradores.get(table.getSelectedRow());
 				excluirButton.setEnabled(true);
+				editarButton.setEnabled(true);
 
 			}
 		});

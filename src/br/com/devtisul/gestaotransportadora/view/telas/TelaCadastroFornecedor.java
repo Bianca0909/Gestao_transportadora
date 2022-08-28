@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 import br.com.devti.gestaotransportadora.entity.ClienteEntity;
 import br.com.devti.gestaotransportadora.entity.FornecedorEntity;
@@ -132,50 +133,50 @@ public class TelaCadastroFornecedor extends JFrame {
 			}
 		});
 		
-		JLabel lblNewLabel_2 = new JLabel("Código:");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		JLabel codigoLabel = new JLabel("Código:");
+		codigoLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
 		codigoField = new JTextField();
 		codigoField.setColumns(10);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.TRAILING)
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-							.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
-								.addGap(150)
-								.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-								.addGap(18)
-								.addComponent(salvarButton, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
-								.addGap(18)
-								.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE))
-							.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-									.addComponent(nomeLabel, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
-									.addComponent(lblNewLabel_2))
-								.addGap(18)
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-									.addComponent(codigoField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-									.addComponent(nomeField, GroupLayout.PREFERRED_SIZE, 497, GroupLayout.PREFERRED_SIZE))))
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(documentoLabel)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(documentoField, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
-							.addGap(18)
-							.addComponent(dataRegistroLabel)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(dataRegistroField, GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)))
-					.addGap(123))
-				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
-					.addGap(90)
-					.addComponent(lblNewLabel)
-					.addContainerGap(278, Short.MAX_VALUE))
-				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
-					.addGap(206)
-					.addComponent(lblNewLabel_1)
-					.addContainerGap(387, Short.MAX_VALUE))
+							.addContainerGap()
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addGap(158)
+									.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addComponent(salvarButton, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addComponent(documentoLabel)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(documentoField, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
+									.addGap(16)
+									.addComponent(dataRegistroLabel)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(dataRegistroField, GroupLayout.PREFERRED_SIZE, 151, GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addComponent(nomeLabel, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
+									.addGap(18)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+										.addComponent(codigoField, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE)
+										.addComponent(nomeField, GroupLayout.PREFERRED_SIZE, 497, GroupLayout.PREFERRED_SIZE)))))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(90)
+							.addComponent(lblNewLabel))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(206)
+							.addComponent(lblNewLabel_1))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(codigoLabel)))
+					.addContainerGap(34, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -184,28 +185,50 @@ public class TelaCadastroFornecedor extends JFrame {
 					.addComponent(lblNewLabel)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(lblNewLabel_1)
-					.addGap(50)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_2)
-						.addComponent(codigoField, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE))
+					.addGap(36)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(codigoLabel)
+						.addComponent(codigoField, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(nomeLabel, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
 						.addComponent(nomeField, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
-					.addGap(11)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(dataRegistroLabel)
-						.addComponent(dataRegistroField, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
-						.addComponent(documentoLabel)
-						.addComponent(documentoField, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))
-					.addGap(52)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(sairButton, GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-						.addComponent(salvarButton, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
-						.addComponent(voltarButton, GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE))
-					.addContainerGap())
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(18)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+								.addComponent(documentoLabel)
+								.addComponent(documentoField, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(28)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+								.addComponent(dataRegistroLabel)
+								.addComponent(dataRegistroField, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))))
+					.addGap(40)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(sairButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+							.addComponent(salvarButton, GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+							.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE)))
+					.addGap(23))
 		);
 		contentPane.setLayout(gl_contentPane);
+	}
+	public void carregarFornecedorPorId(Integer id) {
+		try {
+			FornecedorEntity fornecedorEncontrado = new FornecedorService().buscarFornecedorPorId(id);
+
+			if (fornecedorEncontrado == null) {
+				JOptionPane.showMessageDialog(null, "Cliente não foi localizado", "Erro", JOptionPane.ERROR_MESSAGE);
+			} else {
+				codigoField.setText(Integer.toString(fornecedorEncontrado.getId()));
+				nomeField.setText(fornecedorEncontrado.getName());
+				
+			}
+
+		} catch (NegocioException e) {
+			JOptionPane.showMessageDialog(null, e.getMensagemDeErro(), "Erro", JOptionPane.ERROR_MESSAGE);
+		}
 	}
 
 }

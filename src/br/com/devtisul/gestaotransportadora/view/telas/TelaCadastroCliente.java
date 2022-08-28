@@ -124,14 +124,16 @@ public class TelaCadastroCliente extends JFrame {
 				cliente.setEmail(emailField.getText());
 
 				try {
-					if (nomeField.getText().equals("") && documentoField.getText().equals("")
-							&& dataField.getText().equals("") && emailField.getText().equals("")) {
+					if (codigoField.getText().equals("")) {
 						new ClienteService().salvarCliente(cliente);
+						
 					} else {
+						cliente.setId(Integer.parseInt(codigoField.getText()));
 						new ClienteService().alterarCliente(cliente);
 					}
-					JOptionPane.showMessageDialog(null, "Cliente salvo com sucesso");
 					limparCampos();
+					JOptionPane.showMessageDialog(null, "Cliente salvo com sucesso");
+					
 				} catch (NegocioException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMensagemDeErro(), "Erro", JOptionPane.ERROR_MESSAGE);
 				}
@@ -153,8 +155,8 @@ public class TelaCadastroCliente extends JFrame {
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(51)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+								.addGroup(gl_contentPane.createSequentialGroup()
 									.addGap(1)
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 										.addGroup(gl_contentPane.createSequentialGroup()
@@ -165,34 +167,34 @@ public class TelaCadastroCliente extends JFrame {
 											.addComponent(codigoLabel)
 											.addPreferredGap(ComponentPlacement.RELATED)
 											.addComponent(codigoField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-										.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
-											.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+										.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+											.addGroup(gl_contentPane.createSequentialGroup()
 												.addComponent(lblNewLabel_3)
 												.addGap(18)
 												.addComponent(emailField))
-											.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+											.addGroup(gl_contentPane.createSequentialGroup()
 												.addComponent(lblNewLabel_5)
 												.addPreferredGap(ComponentPlacement.UNRELATED)
 												.addComponent(documentoField))
-											.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+											.addGroup(gl_contentPane.createSequentialGroup()
 												.addComponent(lblNewLabel_4)
 												.addGap(18)
 												.addComponent(dataField, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE))))
 									.addContainerGap(81, Short.MAX_VALUE))
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
+									.addGap(18)
 									.addComponent(salvarButton, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
-									.addGap(181)
+									.addPreferredGap(ComponentPlacement.UNRELATED)
 									.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE)
-									.addGap(45))))
+									.addGap(216))))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addComponent(lblNewLabel)
 							.addGap(128))))
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(218)
 					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 267, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(218, Short.MAX_VALUE))
+					.addContainerGap(284, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -223,9 +225,9 @@ public class TelaCadastroCliente extends JFrame {
 						.addComponent(documentoField, GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE))
 					.addGap(66)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(salvarButton, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
 						.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-						.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-						.addComponent(salvarButton, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
+						.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap())
 		);
 		contentPane.setLayout(gl_contentPane);
