@@ -167,10 +167,16 @@ public class TelaListaClientes extends JFrame {
 			}
 		});
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new DefaultTableModel(new Object[][] {},
-				new String[] { "C\u00D3DIGO", "NOME", "EMAIL", "DATA DE NASCIMENTO", "CPF " }) {
-			boolean[] columnEditables = new boolean[] { false, false, false, false, false };
-
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"C\u00D3DIGO", "NOME", "CPF", "EMAIL", "DATA DE NASCIMENTO"
+			}
+		) {
+			boolean[] columnEditables = new boolean[] {
+				false, false, false, false, false
+			};
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}

@@ -116,7 +116,7 @@ public class FornecedorDAO {
 				fornecedorEncontrado.setId(rs.getInt("id_fornecedor"));
 				fornecedorEncontrado.setName(rs.getString("nome_fornecedor"));
 				fornecedorEncontrado.setCnpj(rs.getString("cnpj_fornecedor"));
-				fornecedorEncontrado.setCnpj(rs.getString("data_registro_fornecedor"));
+				fornecedorEncontrado.setBirthday(rs.getString("data_registro_fornecedor"));
 			}
 
 			return fornecedorEncontrado;
