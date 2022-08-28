@@ -219,7 +219,7 @@ public class TelaCadastroFornecedor extends JFrame {
 			FornecedorEntity fornecedorEncontrado = new FornecedorService().buscarFornecedorPorId(id);
 
 			if (fornecedorEncontrado == null) {
-				JOptionPane.showMessageDialog(null, "Cliente não foi localizado", "Erro", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Fornecedor não foi localizado", "Erro", JOptionPane.ERROR_MESSAGE);
 			} else {
 				codigoField.setText(Integer.toString(fornecedorEncontrado.getId()));
 				nomeField.setText(fornecedorEncontrado.getName());

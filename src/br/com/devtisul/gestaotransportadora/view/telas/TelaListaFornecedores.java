@@ -195,7 +195,7 @@ public class TelaListaFornecedores extends JFrame {
 			}
 		} catch (NegocioException e) {
 			// e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Erro ao buscar clientes do banco de dados");
+			JOptionPane.showMessageDialog(null, "Erro ao buscar fornecedores do banco de dados");
 		}
 	}
 
