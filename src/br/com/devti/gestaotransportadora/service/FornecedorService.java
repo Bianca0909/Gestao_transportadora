@@ -18,7 +18,7 @@ public class FornecedorService {
         return new FornecedorBO().listarFornecedores();
     }
 
-    public void excluirColaborador(Integer id) throws NegocioException {
+    public void excluirFornecedor(Integer id) throws NegocioException {
         new FornecedorBO().excluirFornecedor(id);
     }
 

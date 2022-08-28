@@ -191,158 +191,156 @@ public class Principal {
 //		}
 
 		// ------------------------------LISTAR-------------------------
-		/*
-		 * List<UsuarioEntity> usuarios;
-		 * 
-		 * try { usuarios= new UsuarioService().listarUsuario(); for(UsuarioEntity
-		 * usuarioEntity: usuarios) { System.out.println("Código: " +
-		 * usuarioEntity.getId() + "| Login: " + usuarioEntity.getLogin()); }
-		 * 
-		 * } catch (NegocioException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); } List<ClienteEntity> clientes;
-		 * 
-		 * try { clientes = new ClienteService().listarCliente(); for(ClienteEntity
-		 * clienteEntity: clientes) { System.out.println("Código: " +
-		 * clienteEntity.getId() + "| Nome: " + clienteEntity.getName() +
-		 * "| Documento: " + clienteEntity.getCpf() + "| Email: " +
-		 * clienteEntity.getEmail() + "| Data de nascimento: " +
-		 * clienteEntity.getBirthday()); } } catch (NegocioException e) { // TODO
-		 * Auto-generated catch block e.printStackTrace(); }
-		 * 
-		 * List<ColaboradorEntity> colaboradores;
-		 * 
-		 * try { colaboradores = new ColaboradorService().listarColaborador();
-		 * for(ColaboradorEntity colaboradorEntity: colaboradores) {
-		 * System.out.println("Código: " + colaboradorEntity.getId()+ "| Nome: " +
-		 * colaboradorEntity.getName() + "| Documento: " + colaboradorEntity.getCpf() +
-		 * "| Pis: " + colaboradorEntity.getPis() + "| Data de nascimento: " +
-		 * colaboradorEntity.getBirthday()); } } catch (NegocioException e) { // TODO
-		 * Auto-generated catch block e.printStackTrace(); } List<FornecedorEntity>
-		 * fornecedores;
-		 * 
-		 * try { fornecedores = new FornecedorService().listarFornecedor();
-		 * for(FornecedorEntity fornecedorEntity: fornecedores) {
-		 * System.out.println("Código: " + fornecedorEntity.getId() + "| Nome: " +
-		 * fornecedorEntity.getName() + "| Documento: " + fornecedorEntity.getCnpj() +
-		 * "| Data de registro:" + fornecedorEntity.getBirthday()); } } catch
-		 * (NegocioException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); }
-		 * 
-		 * List<OrdemServicoEntity> ordensServico;
-		 * 
-		 * try { ordensServico = new OrdemServicoService().listarOrdemServico();
-		 * for(OrdemServicoEntity ordemServicoEntity: ordensServico) {
-		 * System.out.println("Código: " + ordemServicoEntity.getId() + "| Cliente: " +
-		 * ordemServicoEntity.getClienteId() + " | Colaborador: " +
-		 * ordemServicoEntity.getColaboradorId() + "| Fornecedor: " +
-		 * ordemServicoEntity.getFornecedorId() + "| Endereço: " +
-		 * ordemServicoEntity.getEndereco() + "| Valor: " +
-		 * ordemServicoEntity.getValor()); } } catch (NegocioException e) { // TODO
-		 * Auto-generated catch block e.printStackTrace(); }
-		 */
-		// ----------------------------BUSCAR POR ID-------------------------
-		/*
-		 * try { UsuarioEntity usuarioEncontrado = new
-		 * UsuarioService().buscarUsuarioPorId(1); JOptionPane.showMessageDialog(null,
-		 * "Usuário encontrado: " + usuarioEncontrado.getLogin()); } catch
-		 * (NegocioException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); }
-		 */
-		/*
-		 * try { ClienteEntity clienteEncontrado = new
-		 * ClienteService().buscarClientePorId(2); JOptionPane.showMessageDialog(null,
-		 * "Cliente encontrado: " + clienteEncontrado.getName()); } catch
-		 * (NegocioException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); }
-		 */
-		/*
-		 * try { ColaboradorEntity colaboradorEncontrado = new
-		 * ColaboradorService().buscarColaboradorPorId(2);
-		 * JOptionPane.showMessageDialog(null, "Colaborador encontrado: " +
-		 * colaboradorEncontrado.getName()); } catch (NegocioException e) { // TODO
-		 * Auto-generated catch block e.printStackTrace(); }
-		 */
-
-		/*
-		 * try { FornecedorEntity fornecedorEncontrado = new
-		 * FornecedorService().buscarFornecedorPorId(2);
-		 * JOptionPane.showMessageDialog(null, "Fornecedor encontrado: " +
-		 * fornecedorEncontrado.getName()); } catch (NegocioException e) { // TODO
-		 * Auto-generated catch block e.printStackTrace(); }
-		 */
-		/*
-		 * try { OrdemServicoEntity osEncontrada = new
-		 * OrdemServicoService().buscarOrdemServicoPorId(3);
-		 * JOptionPane.showMessageDialog(null, "Ordem de serviço encontrada: " +
-		 * osEncontrada.getValor()); } catch (NegocioException e) { // TODO
-		 * Auto-generated catch block e.printStackTrace(); }
-		 */
-		// ----------------------------PESQUISA FILTRADA------------------------
-		/*
-		 * UsuarioEntity usuarioFiltro = new UsuarioEntity();
-		 * usuarioFiltro.setLogin("Maria@123");
-		 * 
-		 * try {
-		 * 
-		 * List<UsuarioEntity> resultado = new
-		 * UsuarioService().buscarUsuarioFiltrado(usuarioFiltro); for(UsuarioEntity
-		 * usuarioEntity: resultado) { System.out.println("Nome: " +
-		 * usuarioEntity.getLogin()); } } catch (NegocioException e) { // TODO
-		 * Auto-generated catch block e.printStackTrace(); }
-		 */
-		/*
-		 * ClienteEntity clienteFiltro = new ClienteEntity();
-		 * clienteFiltro.setName("Bianca");
-		 * 
-		 * try {
-		 * 
-		 * List<ClienteEntity> resultadoCliente = new
-		 * ClienteService().buscarUsuarioFiltrado(clienteFiltro); for(ClienteEntity
-		 * clienteEntity: resultadoCliente) { System.out.println("Nome: " +
-		 * clienteEntity.getName()); } } catch (NegocioException e) { // TODO
-		 * Auto-generated catch block e.printStackTrace(); }
-		 */
-		/*
-		 * FornecedorEntity fornecedorFiltro = new FornecedorEntity();
-		 * fornecedorFiltro.setName("Distribuidora");
-		 * 
-		 * try {
-		 * 
-		 * List<FornecedorEntity> resultadoFornecedor = new
-		 * FornecedorService().buscarUsuarioFiltrado(fornecedorFiltro);
-		 * for(FornecedorEntity fornecedorEntity: resultadoFornecedor) {
-		 * System.out.println("Nome: " + fornecedorEntity.getName()); } } catch
-		 * (NegocioException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); }
-		 */
-
-		/*
-		 * ColaboradorEntity colaboradorFiltro = new ColaboradorEntity();
-		 * colaboradorFiltro.setName("Júlia");
-		 * 
-		 * try {
-		 * 
-		 * List<ColaboradorEntity> resultadoColaborador = new
-		 * ColaboradorService().buscarColaboradorFiltrado(colaboradorFiltro);
-		 * for(ColaboradorEntity colaboradorEntity: resultadoColaborador) {
-		 * System.out.println("Nome: " + colaboradorEntity.getName()); } } catch
-		 * (NegocioException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); }
-		 */
-
-		OrdemServicoEntity ordemServicoFiltro = new OrdemServicoEntity();
-		ordemServicoFiltro.setValor(50.00);
+	
+//		  List<UsuarioEntity> usuarios;
+//		  
+//		  try { usuarios= new UsuarioService().listarUsuario(); for(UsuarioEntity
+//		  usuarioEntity: usuarios) { System.out.println("Código: " +
+//		  usuarioEntity.getId() + "| Login: " + usuarioEntity.getLogin()); }
+//		 
+//		 } catch (NegocioException e) { // TODO Auto-generated catch block
+//		 e.printStackTrace(); } List<ClienteEntity> clientes;
+//		  
+//		  try { clientes = new ClienteService().listarCliente(); for(ClienteEntity
+//		  clienteEntity: clientes) { System.out.println("Código: " +
+//		  clienteEntity.getId() + "| Nome: " + clienteEntity.getName() +
+//		 "| Documento: " + clienteEntity.getCpf() + "| Email: " +
+//		  clienteEntity.getEmail() + "| Data de nascimento: " +
+//		  clienteEntity.getBirthday()); } } catch (NegocioException e) { // TODO
+//		  Auto-generated catch block e.printStackTrace(); }
+//		  
+//		  List<ColaboradorEntity> colaboradores;
+//		  
+//		  try { colaboradores = new ColaboradorService().listarColaborador();
+//		  for(ColaboradorEntity colaboradorEntity: colaboradores) {
+//		  System.out.println("Código: " + colaboradorEntity.getId()+ "| Nome: " +
+//		  colaboradorEntity.getName() + "| Documento: " + colaboradorEntity.getCpf() +
+//		  "| Pis: " + colaboradorEntity.getPis() + "| Data de nascimento: " +
+//		  colaboradorEntity.getBirthday()); } } catch (NegocioException e) { // TODO
+//		  Auto-generated catch block e.printStackTrace(); } List<FornecedorEntity>
+//		  fornecedores;
+//		
+//		  try { fornecedores = new FornecedorService().listarFornecedor();
+//		  for(FornecedorEntity fornecedorEntity: fornecedores) {
+//		  System.out.println("Código: " + fornecedorEntity.getId() + "| Nome: " +
+//		  fornecedorEntity.getName() + "| Documento: " + fornecedorEntity.getCnpj() +
+//		  "| Data de registro:" + fornecedorEntity.getBirthday()); } } catch
+//		  (NegocioException e) { // TODO Auto-generated catch block
+//		  e.printStackTrace(); }
+//		 
+//		  List<OrdemServicoEntity> ordensServico;
+//		  
+//		  try { ordensServico = new OrdemServicoService().listarOrdemServico();
+//		  for(OrdemServicoEntity ordemServicoEntity: ordensServico) {
+//		  System.out.println("Código: " + ordemServicoEntity.getId() + "| Cliente: " +
+//		  ordemServicoEntity.getClienteId() + " | Colaborador: " +
+//		  ordemServicoEntity.getColaboradorId() + "| Fornecedor: " +
+//		  ordemServicoEntity.getFornecedorId() + "| Endereço: " +
+//		  ordemServicoEntity.getEndereco() + "| Valor: " +
+//		  ordemServicoEntity.getValor()); } } catch (NegocioException e) { // TODO
+//		  Auto-generated catch block e.printStackTrace(); }
 		
-		try {
-			List<OrdemServicoEntity> resultadoOs = new OrdemServicoService()
-					.buscarOrdemServicoFiltrada(ordemServicoFiltro);
-			for (OrdemServicoEntity ordemServicoEntity : resultadoOs) {
-				System.out.println("| Valor: " + ordemServicoEntity.getValor());
-			}
-		} catch (NegocioException e) { // TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		// ----------------------------BUSCAR POR ID-------------------------
+		
+//		  try { UsuarioEntity usuarioEncontrado = new
+//		  UsuarioService().buscarUsuarioPorId(1); JOptionPane.showMessageDialog(null,
+//		  "Usuário encontrado: " + usuarioEncontrado.getLogin()); } catch
+//		  (NegocioException e) { // TODO Auto-generated catch block
+//		  e.printStackTrace(); }
+//		 
+//		
+//		  try { ClienteEntity clienteEncontrado = new
+//		  ClienteService().buscarClientePorId(2); JOptionPane.showMessageDialog(null,
+//		  "Cliente encontrado: " + clienteEncontrado.getName()); } catch
+//		  (NegocioException e) { // TODO Auto-generated catch block
+//		  e.printStackTrace(); }
+//		 
+//		
+//		  try { ColaboradorEntity colaboradorEncontrado = new
+//		  ColaboradorService().buscarColaboradorPorId(2);
+//		  JOptionPane.showMessageDialog(null, "Colaborador encontrado: " +
+//		  colaboradorEncontrado.getName()); } catch (NegocioException e) { // TODO
+//		  Auto-generated catch block e.printStackTrace(); }
+//		 
+//
+//		
+//		  try { FornecedorEntity fornecedorEncontrado = new
+//		  FornecedorService().buscarFornecedorPorId(2);
+//		  JOptionPane.showMessageDialog(null, "Fornecedor encontrado: " +
+//		  fornecedorEncontrado.getName()); } catch (NegocioException e) { // TODO
+//		  Auto-generated catch block e.printStackTrace(); }
+//		 
+//		
+//		  try { OrdemServicoEntity osEncontrada = new
+//		  OrdemServicoService().buscarOrdemServicoPorId(3);
+//		  JOptionPane.showMessageDialog(null, "Ordem de serviço encontrada: " +
+//		  osEncontrada.getValor()); } catch (NegocioException e) { // TODO
+//		  Auto-generated catch block e.printStackTrace(); }
+		 
+		// ----------------------------PESQUISA FILTRADA------------------------
+//		
+//		 UsuarioEntity usuarioFiltro = new UsuarioEntity();
+//		  usuarioFiltro.setLogin("Maria@123");
+//		  
+//		  try {
+//		  
+//		  List<UsuarioEntity> resultado = new
+//		 UsuarioService().buscarUsuarioFiltrado(usuarioFiltro); for(UsuarioEntity
+//		  usuarioEntity: resultado) { System.out.println("Nome: " +
+//		  usuarioEntity.getLogin()); } } catch (NegocioException e) { // TODO
+//		  Auto-generated catch block e.printStackTrace(); }
+//		 
+//		
+//		  ClienteEntity clienteFiltro = new ClienteEntity();
+//		  clienteFiltro.setName("Bianca");
+//		  
+//		  try {
+//		  
+//		  List<ClienteEntity> resultadoCliente = new
+//		  ClienteService().buscarUsuarioFiltrado(clienteFiltro); for(ClienteEntity
+//		  clienteEntity: resultadoCliente) { System.out.println("Nome: " +
+//		  clienteEntity.getName()); } } catch (NegocioException e) { // TODO
+//		  Auto-generated catch block e.printStackTrace(); }
+//		 
+//		
+//		  FornecedorEntity fornecedorFiltro = new FornecedorEntity();
+//		  fornecedorFiltro.setName("Distribuidora");
+//		  
+//		  try {
+//		  
+//		  List<FornecedorEntity> resultadoFornecedor = new
+//		  FornecedorService().buscarUsuarioFiltrado(fornecedorFiltro);
+//		  for(FornecedorEntity fornecedorEntity: resultadoFornecedor) {
+//		  System.out.println("Nome: " + fornecedorEntity.getName()); } } catch
+//		  (NegocioException e) { // TODO Auto-generated catch block
+//		  e.printStackTrace(); }
+//		 
 
-	}
+//		
+//		  ColaboradorEntity colaboradorFiltro = new ColaboradorEntity();
+//		  colaboradorFiltro.setName("Júlia");
+//		  
+//		  try {
+//		  
+//		  List<ColaboradorEntity> resultadoColaborador = new
+//		  ColaboradorService().buscarColaboradorFiltrado(colaboradorFiltro);
+//		  for(ColaboradorEntity colaboradorEntity: resultadoColaborador) {
+//		  System.out.println("Nome: " + colaboradorEntity.getName()); } } catch
+//		  (NegocioException e) { // TODO Auto-generated catch block
+//		  e.printStackTrace(); }
+//		 
+//
+//		OrdemServicoEntity ordemServicoFiltro = new OrdemServicoEntity();
+//		ordemServicoFiltro.setValor(50.00);
+//		
+//		try {
+//			List<OrdemServicoEntity> resultadoOs = new OrdemServicoService()
+//					.buscarOrdemServicoFiltrada(ordemServicoFiltro);
+//			for (OrdemServicoEntity ordemServicoEntity : resultadoOs) {
+//				System.out.println("| Valor: " + ordemServicoEntity.getValor());
+//			}
+//		} catch (NegocioException e) { // TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 
-}
+}}

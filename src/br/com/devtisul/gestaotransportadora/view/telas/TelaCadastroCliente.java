@@ -29,6 +29,7 @@ public class TelaCadastroCliente extends JFrame {
 	private JTextField emailField;
 	private JTextField dataField;
 	private JTextField documentoField;
+	private JTextField codigoField;
 
 	/**
 	 * Launch the application.
@@ -51,7 +52,7 @@ public class TelaCadastroCliente extends JFrame {
 	 */
 	public TelaCadastroCliente() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 729, 525);
+		setBounds(100, 100, 795, 576);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -123,80 +124,137 @@ public class TelaCadastroCliente extends JFrame {
 				cliente.setEmail(emailField.getText());
 
 				try {
-					new ClienteService().salvarCliente(cliente);
+					if (nomeField.getText().equals("") && documentoField.getText().equals("")
+							&& dataField.getText().equals("") && emailField.getText().equals("")) {
+						new ClienteService().salvarCliente(cliente);
+					} else {
+						new ClienteService().alterarCliente(cliente);
+					}
 					JOptionPane.showMessageDialog(null, "Cliente salvo com sucesso");
-					nomeField.setText("");
-					documentoField.setText("");
-					dataField.setText("");
-					emailField.setText("");
+					limparCampos();
 				} catch (NegocioException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMensagemDeErro(), "Erro", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
+		
+		JLabel codigoLabel = new JLabel("Código:");
+		codigoLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		
+		codigoField = new JTextField();
+		codigoField.setEditable(false);
+		codigoField.setColumns(10);
 
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING).addGroup(gl_contentPane
-				.createSequentialGroup().addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-				.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING).addGroup(gl_contentPane
-						.createSequentialGroup().addGap(51)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_contentPane.createSequentialGroup().addComponent(lblNewLabel_3).addGap(18)
-										.addComponent(emailField, 513, 513, 513))
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(51)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+									.addGap(1)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+										.addGroup(gl_contentPane.createSequentialGroup()
+											.addComponent(NomeLabel, GroupLayout.PREFERRED_SIZE, 69, GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(ComponentPlacement.RELATED)
+											.addComponent(nomeField, GroupLayout.PREFERRED_SIZE, 556, GroupLayout.PREFERRED_SIZE))
+										.addGroup(gl_contentPane.createSequentialGroup()
+											.addComponent(codigoLabel)
+											.addPreferredGap(ComponentPlacement.RELATED)
+											.addComponent(codigoField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+										.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+											.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+												.addComponent(lblNewLabel_3)
+												.addGap(18)
+												.addComponent(emailField))
+											.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+												.addComponent(lblNewLabel_5)
+												.addPreferredGap(ComponentPlacement.UNRELATED)
+												.addComponent(documentoField))
+											.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+												.addComponent(lblNewLabel_4)
+												.addGap(18)
+												.addComponent(dataField, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE))))
+									.addContainerGap(81, Short.MAX_VALUE))
 								.addGroup(gl_contentPane.createSequentialGroup()
-										.addComponent(NomeLabel, GroupLayout.PREFERRED_SIZE, 69,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.RELATED).addComponent(nomeField,
-												GroupLayout.PREFERRED_SIZE, 514, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_contentPane.createSequentialGroup()
-										.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 89,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(165)
-										.addComponent(salvarButton, GroupLayout.PREFERRED_SIZE, 102,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(178).addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 85,
-												GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
-										.addGroup(Alignment.LEADING,
-												gl_contentPane.createSequentialGroup().addComponent(lblNewLabel_5)
-														.addPreferredGap(ComponentPlacement.UNRELATED)
-														.addComponent(documentoField))
-										.addGroup(Alignment.LEADING,
-												gl_contentPane.createSequentialGroup().addComponent(lblNewLabel_4)
-														.addPreferredGap(ComponentPlacement.UNRELATED)
-														.addComponent(dataField, GroupLayout.PREFERRED_SIZE, 122,
-																GroupLayout.PREFERRED_SIZE))))
-						.addContainerGap(23, Short.MAX_VALUE)).addGroup(Alignment.TRAILING,
-								gl_contentPane.createSequentialGroup().addComponent(lblNewLabel).addGap(128))))
-				.addGroup(Alignment.LEADING,
-						gl_contentPane
-								.createSequentialGroup().addGap(218).addComponent(lblNewLabel_1,
-										GroupLayout.PREFERRED_SIZE, 267, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(218, Short.MAX_VALUE)));
-		gl_contentPane.setVerticalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup().addContainerGap().addComponent(lblNewLabel)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
-						.addGap(40)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(NomeLabel, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)
-								.addComponent(nomeField, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
-						.addPreferredGap(ComponentPlacement.UNRELATED)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE).addComponent(lblNewLabel_3)
-								.addComponent(emailField, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE))
-						.addGap(18)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE).addComponent(lblNewLabel_4)
-								.addComponent(dataField, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
-						.addGap(18)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE).addComponent(lblNewLabel_5)
-								.addComponent(documentoField, GroupLayout.PREFERRED_SIZE, 31,
-										GroupLayout.PREFERRED_SIZE))
-						.addPreferredGap(ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-								.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-								.addComponent(salvarButton, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE))
-						.addContainerGap()));
+									.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
+									.addComponent(salvarButton, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
+									.addGap(181)
+									.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE)
+									.addGap(45))))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(lblNewLabel)
+							.addGap(128))))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(218)
+					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 267, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(218, Short.MAX_VALUE))
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(lblNewLabel)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
+					.addGap(31)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(codigoLabel)
+						.addComponent(codigoField, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(NomeLabel, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)
+						.addComponent(nomeField, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel_3)
+						.addComponent(emailField, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel_4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(dataField, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel_5)
+						.addComponent(documentoField, GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE))
+					.addGap(66)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+						.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+						.addComponent(salvarButton, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap())
+		);
 		contentPane.setLayout(gl_contentPane);
+	}
+
+	private void limparCampos() {
+		codigoField.setText("");
+		nomeField.setText("");
+		emailField.setText("");
+		dataField.setText("");
+		documentoField.setText("");
+	}
+
+	public void carregarClientePorId(Integer id) {
+		try {
+			ClienteEntity clienteEncontrado = new ClienteService().buscarClientePorId(id);
+
+			if (clienteEncontrado == null) {
+				JOptionPane.showMessageDialog(null, "Cliente não foi localizado", "Erro", JOptionPane.ERROR_MESSAGE);
+			} else {
+				codigoField.setText(Integer.toString(clienteEncontrado.getId()));
+				nomeField.setText(clienteEncontrado.getName());
+				emailField.setText(clienteEncontrado.getEmail());
+				dataField.setText(clienteEncontrado.getBirthday());
+				documentoField.setText(clienteEncontrado.getCpf());
+			}
+
+		} catch (NegocioException e) {
+			JOptionPane.showMessageDialog(null, e.getMensagemDeErro(), "Erro", JOptionPane.ERROR_MESSAGE);
+		}
 	}
 }

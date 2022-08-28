@@ -32,6 +32,7 @@ public class TelaCadastroUsuario extends JFrame {
 	private JPanel contentPane;
 	private JTextField loginField;
 	private JTextField senhaField;
+	private JTextField codigoField;
 
 	/**
 	 * Launch the application.
@@ -54,7 +55,7 @@ public class TelaCadastroUsuario extends JFrame {
 	 */
 	public TelaCadastroUsuario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 616, 457);
+		setBounds(100, 100, 650, 486);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -124,42 +125,48 @@ public class TelaCadastroUsuario extends JFrame {
 			}
 		});
 		
+		JLabel codigoLabel = new JLabel("Código:");
+		codigoLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		
+		codigoField = new JTextField();
+		codigoField.setColumns(10);
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap(81, Short.MAX_VALUE)
-					.addComponent(lblNewLabel)
-					.addGap(47))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap(323, Short.MAX_VALUE)
+					.addContainerGap(374, Short.MAX_VALUE)
 					.addComponent(lblNewLabel_3)
 					.addGap(250))
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(33)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+					.addGap(190)
+					.addComponent(lblNewLabel_4, GroupLayout.PREFERRED_SIZE, 215, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(219, Short.MAX_VALUE))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap(106, Short.MAX_VALUE)
+					.addComponent(lblNewLabel)
+					.addGap(73))
+				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+					.addGap(56)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addComponent(senhaLabel)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(loginLabel)
-							.addGap(7))
-						.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE))
+						.addComponent(codigoLabel)
+						.addComponent(loginLabel))
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(26)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
-								.addComponent(loginField, Alignment.LEADING)
-								.addComponent(senhaField, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE))
-							.addContainerGap(267, Short.MAX_VALUE))
-						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-							.addGap(134)
-							.addComponent(salvarButton, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
-							.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE)
-							.addGap(26))))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(178)
-					.addComponent(lblNewLabel_4, GroupLayout.PREFERRED_SIZE, 215, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(180, Short.MAX_VALUE))
+							.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 101, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+							.addComponent(salvarButton, GroupLayout.PREFERRED_SIZE, 104, GroupLayout.PREFERRED_SIZE)
+							.addGap(30)
+							.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)
+							.addGap(136))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+								.addComponent(senhaField, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+								.addComponent(loginField, Alignment.LEADING, 156, 156, 156)
+								.addComponent(codigoField, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addGap(318))))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -169,22 +176,24 @@ public class TelaCadastroUsuario extends JFrame {
 					.addComponent(lblNewLabel_3)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(lblNewLabel_4)
-					.addGap(43)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+					.addPreferredGap(ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(codigoLabel)
+						.addComponent(codigoField, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE))
+					.addGap(16)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(loginLabel)
-						.addComponent(loginField, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+						.addComponent(loginField, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(senhaLabel)
-						.addComponent(senhaField, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
-					.addGap(102))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap(340, Short.MAX_VALUE)
+						.addComponent(senhaField, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+					.addGap(40)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE)
-						.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
-						.addComponent(salvarButton, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap())
+						.addComponent(salvarButton, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+						.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
+						.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE))
+					.addGap(24))
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
