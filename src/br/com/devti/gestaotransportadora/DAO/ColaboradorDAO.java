@@ -97,7 +97,7 @@ public class ColaboradorDAO {
 
 	public ColaboradorEntity buscarColaboradorPorId(Integer id) throws NegocioException {
 
-		String sql = "SELECT id_colaborador, nome_colaborador, pis_colaborador FROM colaborador WHERE id_colaborador = ?";
+		String sql = "SELECT id_colaborador, nome_colaborador, cpf_colaborador, data_nascimento_colaborador, pis_colaborador FROM colaborador WHERE id_colaborador = ?";
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -114,6 +114,8 @@ public class ColaboradorDAO {
 				colaboradorEncontrado = new ColaboradorEntity();
 				colaboradorEncontrado.setId(rs.getInt("id_colaborador"));
 				colaboradorEncontrado.setName(rs.getString("nome_colaborador"));
+			    colaboradorEncontrado.setCpf(rs.getString("cpf_colaborador"));
+			    colaboradorEncontrado.setBirthday(rs.getString("data_nascimento_colaborador"));
 				colaboradorEncontrado.setPis(rs.getString("pis_colaborador"));
 			}
 

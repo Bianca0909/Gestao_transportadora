@@ -44,7 +44,7 @@ public class ClienteDAO {
 
 	public List<ClienteEntity> listarClientes() throws NegocioException {
 
-		String sql = "SELECT id_cliente, nome_cliente, email_cliente, data_nascimento_cliente, cpf_cliente  FROM cliente ORDER BY nome_cliente";
+		String sql = "SELECT id_cliente, nome_cliente, email_cliente, data_nascimento_cliente, cpf_cliente  FROM cliente ORDER BY id_cliente";
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -100,7 +100,7 @@ public class ClienteDAO {
 
 	public ClienteEntity buscarClientePorId(Integer id) throws NegocioException {
 
-		String sql = "SELECT id_cliente, nome_cliente FROM cliente WHERE id_cliente = ?";
+		String sql = "SELECT id_cliente, nome_cliente, email_cliente, data_nascimento_cliente, cpf_cliente FROM cliente WHERE id_cliente = ?";
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -117,6 +117,9 @@ public class ClienteDAO {
 				clienteEncontrado = new ClienteEntity();
 				clienteEncontrado.setId(rs.getInt("id_cliente"));
 				clienteEncontrado.setName(rs.getString("nome_cliente"));
+				clienteEncontrado.setEmail(rs.getString("email_cliente"));
+				clienteEncontrado.setBirthday(rs.getString("data_nascimento_cliente"));
+				clienteEncontrado.setCpf(rs.getString("cpf_cliente"));
 			}
 
 			return clienteEncontrado;

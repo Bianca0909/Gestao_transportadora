@@ -223,6 +223,8 @@ public class TelaCadastroFornecedor extends JFrame {
 			} else {
 				codigoField.setText(Integer.toString(fornecedorEncontrado.getId()));
 				nomeField.setText(fornecedorEncontrado.getName());
+				dataRegistroField.setText(fornecedorEncontrado.getBirthday());
+				documentoField.setText(fornecedorEncontrado.getCnpj());
 				
 			}
 

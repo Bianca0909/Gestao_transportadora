@@ -15,6 +15,12 @@ public class ClienteBO {
         if (cliente.getCpf() == null || cliente.getCpf().equals("")) {
             throw new NegocioException("O documento do cliente deve ser preenchido.");
         }
+        if (cliente.getBirthday() == null || cliente.getBirthday().equals("")) {
+        	throw new NegocioException("A data de nascimento do cliente deve ser preenchido.");
+        }
+        if (cliente.getEmail() == null || cliente.getEmail().equals("")) {
+        	throw new NegocioException("A data de nascimento do cliente deve ser preenchido.");
+        }
 
     }
 
