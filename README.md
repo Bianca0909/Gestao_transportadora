@@ -19,7 +19,7 @@ Projeto final DEVTISUL - Módulo 2
   - LISTAR <span style='font-size:100px;'>&#9989;</span>,
   - DELETAR <span style='font-size:100px;'>&#9989;</span>,
   - BUSCAR POR ID <span style='font-size:100px;'>&#9989;</span>,
-  - PESQUISA FILTRADA <span style='font-size:100px;'>&#10060;</span>
+  - PESQUISA FILTRADA <span style='font-size:100px;'>&#9989;</span>
   - ORDEM DE SERVIÇO <span style='font-size:100px;'>&#10060;</span>
 
 - LOGIN BACKEND (BÔNUS); <span style='font-size:100px;'>&#10060;</span>,
