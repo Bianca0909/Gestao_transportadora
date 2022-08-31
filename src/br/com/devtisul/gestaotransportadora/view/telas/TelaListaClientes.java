@@ -26,6 +26,7 @@ import javax.swing.table.DefaultTableModel;
 import br.com.devti.gestaotransportadora.entity.ClienteEntity;
 import br.com.devti.gestaotransportadora.service.ClienteService;
 import br.com.devti.gestaotransportadora.util.exception.NegocioException;
+import javax.swing.SwingConstants;
 
 public class TelaListaClientes extends JFrame {
 
@@ -115,45 +116,70 @@ public class TelaListaClientes extends JFrame {
                 dispose();
 			}
 		});
+		
+		JButton adicionarButton = new JButton("ADICIONAR");
+		adicionarButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaCadastroCliente cadastroCliente = new TelaCadastroCliente();
+				cadastroCliente.setVisible(true);
+				dispose();
+			}
+		});
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING).addGroup(gl_contentPane
-				.createSequentialGroup()
-				.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup().addGap(277)
-								.addComponent(lblConsultaDeClientes, GroupLayout.PREFERRED_SIZE, 222,
-										GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
-								.addComponent(editarButton, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(excluirButton,
-										GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_contentPane.createSequentialGroup().addContainerGap(53, Short.MAX_VALUE)
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
-										.addGroup(gl_contentPane.createSequentialGroup()
-												.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 96,
-														GroupLayout.PREFERRED_SIZE)
-												.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE,
-														Short.MAX_VALUE)
-												.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 111,
-														GroupLayout.PREFERRED_SIZE))
-										.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 770,
-												GroupLayout.PREFERRED_SIZE))))
-				.addGap(46)));
-		gl_contentPane.setVerticalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING).addGroup(gl_contentPane
-				.createSequentialGroup().addGap(35)
-				.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-						.addGroup(gl_contentPane.createSequentialGroup().addComponent(lblConsultaDeClientes).addGap(40))
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap(53, Short.MAX_VALUE)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-										.addComponent(excluirButton, GroupLayout.PREFERRED_SIZE, 38,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(editarButton, GroupLayout.PREFERRED_SIZE, 34,
-												GroupLayout.PREFERRED_SIZE))
-								.addGap(18)))
-				.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 306, GroupLayout.PREFERRED_SIZE).addGap(43)
-				.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+							.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 770, GroupLayout.PREFERRED_SIZE)
+							.addContainerGap())
+						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addComponent(adicionarButton, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED, 466, Short.MAX_VALUE)
+									.addComponent(editarButton, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addComponent(excluirButton, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED))
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 96, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED, 563, Short.MAX_VALUE)
+									.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)))
+							.addGap(46))))
+				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+					.addGap(281)
+					.addComponent(lblConsultaDeClientes, GroupLayout.PREFERRED_SIZE, 222, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(366, Short.MAX_VALUE))
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(35)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+										.addComponent(excluirButton, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
+										.addComponent(editarButton, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE))
+									.addPreferredGap(ComponentPlacement.RELATED))
+								.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+									.addGap(24)
+									.addComponent(adicionarButton, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.UNRELATED))))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(lblConsultaDeClientes)))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 306, GroupLayout.PREFERRED_SIZE)
+					.addGap(36)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(sairButton, GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
 						.addComponent(voltarButton, GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
-				.addGap(21)));
+					.addGap(21))
+		);
 
 		table = new JTable();
 		table.addMouseListener(new MouseAdapter() {
