@@ -8,6 +8,8 @@ import br.com.devti.gestaotransportadora.util.exception.NegocioException;
 
 public class OrdemServicoBO {
 
+	
+	
     private void validarOrdemServico(OrdemServicoEntity ordemServico) throws NegocioException {
      
         if (ordemServico.getClienteId() == null) {
@@ -18,6 +20,7 @@ public class OrdemServicoBO {
         }
 
     }
+  
       public String salvarOrdemServico(OrdemServicoEntity ordemServico) throws NegocioException {
 
         validarOrdemServico(ordemServico);

@@ -8,6 +8,17 @@ public class OrdemServicoEntity {
 	private Integer fornecedorId;
 	private Integer colaboradorId;
 	private Double valor;
+	private Enum situacao;
+
+
+
+	public Enum getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(Enum situacao) {
+		this.situacao = situacao;
+	}
 
 	public OrdemServicoEntity(Integer id, String endereco, Integer clienteId, Integer fornecedorId,
 			Integer colaboradorId, Double valor) {

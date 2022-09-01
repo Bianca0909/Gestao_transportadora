@@ -10,5 +10,6 @@ package br.com.deti.gestaotransportadora.enums;
  */
 public enum SituacaoOrdemServico {
     PAGO,
+    PENDENTE,
     CANCELADO
 }
