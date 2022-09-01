@@ -50,7 +50,7 @@ public class ClienteBO {
     public ClienteEntity buscarClientePorId(Integer id) throws NegocioException {
         return new ClienteDAO().buscarClientePorId(id);
     }
-    public List<ClienteEntity> buscarUsuarioFiltrado(ClienteEntity cliente) throws NegocioException {
+    public List<ClienteEntity> buscarClienteFiltrado(ClienteEntity cliente) throws NegocioException {
     	return new ClienteDAO().buscarUsuarioFiltrado(cliente);
     }
 }

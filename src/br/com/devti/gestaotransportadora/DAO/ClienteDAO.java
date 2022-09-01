@@ -44,7 +44,7 @@ public class ClienteDAO {
 
 	public List<ClienteEntity> listarClientes() throws NegocioException {
 
-		String sql = "SELECT id_cliente, nome_cliente, email_cliente, data_nascimento_cliente, cpf_cliente  FROM cliente ORDER BY id_cliente";
+		String sql = "SELECT id_cliente, nome_cliente, email_cliente, data_nascimento_cliente, cpf_cliente FROM cliente ORDER BY id_cliente";
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -176,8 +176,8 @@ public class ClienteDAO {
 
 		if (cliente.getId() != null) {
 			adicionaWhere = false;
-			sql += " WHERE";
-			sql += " id_usuario = ?";
+			sql += " WHERE ";
+			sql += " id_cliente = ?";
 		}
 		if (cliente.getName() != null && !cliente.getName().equals("")) {
 			if (adicionaWhere) {
@@ -187,15 +187,6 @@ public class ClienteDAO {
 				sql += " AND";
 			}
 			sql += " nome_cliente LIKE ?";
-		}
-		if(cliente.getCpf() != null && !cliente.getCpf().equals("")) {
-			if (adicionaWhere) {
-				sql += " WHERE ";
-				adicionaWhere = false;
-			} else {
-				sql += " AND";
-			}
-			sql += " cpf_cliente LIKE ?";
 		}
 		if(cliente.getEmail() != null && !cliente.getEmail().equals("")) {
 			if (adicionaWhere) {
@@ -214,6 +205,15 @@ public class ClienteDAO {
 				sql += " AND";
 			}
 			sql += " data_nascimento_cliente LIKE ?";
+		}
+		if(cliente.getCpf() != null && !cliente.getCpf().equals("")) {
+			if (adicionaWhere) {
+				sql += " WHERE ";
+				adicionaWhere = false;
+			} else {
+				sql += " AND";
+			}
+			sql += " cpf_cliente LIKE ?";
 		}
 		System.out.println(sql);
 		PreparedStatement ps = null;
@@ -254,6 +254,8 @@ public class ClienteDAO {
 				clienteResultado.setEmail(rs.getString("email_cliente"));
 				clienteResultado.setBirthday(rs.getString("data_nascimento_cliente"));
 				clienteResultado.setCpf(rs.getString("cpf_cliente"));
+				
+				
 				resultado.add(clienteResultado);
 			}
 		} catch (SQLException e) {

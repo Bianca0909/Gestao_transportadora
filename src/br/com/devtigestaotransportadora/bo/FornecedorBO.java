@@ -48,7 +48,7 @@ public class FornecedorBO {
 		return new FornecedorDAO().buscarFornecedorPorId(id);
 	}
 
-	public List<FornecedorEntity> buscarUsuarioFiltrado(FornecedorEntity fornecedor) throws NegocioException {
-		return new FornecedorDAO().buscarUsuarioFiltrado(fornecedor);
+	public List<FornecedorEntity> buscarFornecedorFiltrado(FornecedorEntity fornecedor) throws NegocioException {
+		return new FornecedorDAO().buscarFornecedorFiltrado(fornecedor);
 	}
 }

@@ -30,7 +30,7 @@ public class FornecedorService {
         return new FornecedorBO().buscarFornecedorPorId(id);
     }
     
-    public List<FornecedorEntity> buscarUsuarioFiltrado(FornecedorEntity fornecedor) throws NegocioException {
-    	return new FornecedorBO().buscarUsuarioFiltrado(fornecedor);
+    public List<FornecedorEntity> buscarFornecedorFiltrado(FornecedorEntity fornecedor) throws NegocioException {
+    	return new FornecedorBO().buscarFornecedorFiltrado(fornecedor);
     	}
 }

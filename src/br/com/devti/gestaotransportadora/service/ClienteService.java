@@ -33,7 +33,7 @@ public class ClienteService {
     public ClienteEntity buscarClientePorId(Integer id) throws NegocioException {
         return new ClienteBO().buscarClientePorId(id);
     }
-    public List<ClienteEntity> buscarUsuarioFiltrado(ClienteEntity cliente) throws NegocioException {
-    	return new ClienteBO().buscarUsuarioFiltrado(cliente);
+    public List<ClienteEntity> buscarClienteFiltrado(ClienteEntity cliente) throws NegocioException {
+    	return new ClienteBO().buscarClienteFiltrado(cliente);
     	}
 }

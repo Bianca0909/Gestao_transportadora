@@ -174,7 +174,7 @@ public class ColaboradorDAO {
 		if (colaborador.getId() != null) {
 			adicionaWhere = false;
 			sql += " WHERE";
-			sql += " id_usuario = ?";
+			sql += " id_colaborador = ?";
 		}
 		if (colaborador.getName() != null && !colaborador.getName().equals("")) {
 			if (adicionaWhere) {

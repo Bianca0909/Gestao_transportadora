@@ -1,33 +1,26 @@
 package br.com.devtisul.gestaotransportadora.view.telas;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import br.com.devti.gestaotransportadora.entity.ClienteEntity;
-import br.com.devti.gestaotransportadora.entity.FornecedorEntity;
-import br.com.devti.gestaotransportadora.entity.UsuarioEntity;
-import br.com.devti.gestaotransportadora.service.ClienteService;
-import br.com.devti.gestaotransportadora.service.FornecedorService;
-import br.com.devti.gestaotransportadora.service.UsuarioService;
-import br.com.devti.gestaotransportadora.util.exception.NegocioException;
-
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.ImageIcon;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JTextField;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.Color;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.border.EmptyBorder;
+
+import br.com.devti.gestaotransportadora.entity.UsuarioEntity;
+import br.com.devti.gestaotransportadora.service.UsuarioService;
+import br.com.devti.gestaotransportadora.util.exception.NegocioException;
 
 public class TelaCadastroUsuario extends JFrame {
 

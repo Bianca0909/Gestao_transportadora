@@ -172,7 +172,7 @@ public class UsuarioDAO {
 
 		if (usuario.getId() != null) {
 			adicionaWhere = false;
-			sql += " WHERE";
+			sql += " WHERE ";
 			sql += " id_usuario = ?";
 		}
 		if (usuario.getLogin() != null && !usuario.getLogin().equals("")) {

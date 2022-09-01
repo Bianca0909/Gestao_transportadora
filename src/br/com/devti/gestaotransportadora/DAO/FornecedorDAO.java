@@ -162,7 +162,7 @@ public class FornecedorDAO {
 		return "Fornecedor alterado com sucesso";
 	}
 
-	public List<FornecedorEntity> buscarUsuarioFiltrado(FornecedorEntity fornecedor) throws NegocioException {
+	public List<FornecedorEntity> buscarFornecedorFiltrado(FornecedorEntity fornecedor) throws NegocioException {
 
 		String sql = "SELECT id_fornecedor, nome_fornecedor, cnpj_fornecedor, data_registro_fornecedor FROM fornecedor";
 
@@ -172,7 +172,7 @@ public class FornecedorDAO {
 
 		if (fornecedor.getId() != null) {
 			adicionaWhere = false;
-			sql += " WHERE";
+			sql += " WHERE ";
 			sql += " id_fornecedor = ?";
 		}
 		if (fornecedor.getName() != null && !fornecedor.getName().equals("")) {
@@ -236,6 +236,7 @@ public class FornecedorDAO {
 				fornecedorResultado.setName(rs.getString("nome_fornecedor"));
 				fornecedorResultado.setCnpj(rs.getString("cnpj_fornecedor"));
 				fornecedorResultado.setBirthday(rs.getString("data_registro_fornecedor"));
+				
 				resultado.add(fornecedorResultado);
 			}
 		} catch (SQLException e) {

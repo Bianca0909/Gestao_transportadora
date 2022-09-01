@@ -1,37 +1,32 @@
 package br.com.devtisul.gestaotransportadora.view.telas;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JScrollPane;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-
-import br.com.devti.gestaotransportadora.entity.ClienteEntity;
-import br.com.devti.gestaotransportadora.entity.UsuarioEntity;
-import br.com.devti.gestaotransportadora.service.ClienteService;
-import br.com.devti.gestaotransportadora.service.UsuarioService;
-import br.com.devti.gestaotransportadora.util.exception.NegocioException;
-
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.List;
-import javax.swing.ListSelectionModel;
+
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
-import java.awt.Color;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.ListSelectionModel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import br.com.devti.gestaotransportadora.entity.UsuarioEntity;
+import br.com.devti.gestaotransportadora.service.UsuarioService;
+import br.com.devti.gestaotransportadora.util.exception.NegocioException;
 
 public class TelaListaUsuarios extends JFrame {
 
@@ -153,8 +148,11 @@ public class TelaListaUsuarios extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				UsuarioEntity usuarioFiltro = new UsuarioEntity();
-				usuarioFiltro.setId(Integer.parseInt(codigoField.getText()));
 				usuarioFiltro.setLogin(loginField.getText());
+				if(!codigoField.getText().equals("")) {
+					usuarioFiltro.setId(Integer.parseInt(codigoField.getText()));
+				}
+				
 				popularTabelaFiltrada(usuarioFiltro);
 			}
 
