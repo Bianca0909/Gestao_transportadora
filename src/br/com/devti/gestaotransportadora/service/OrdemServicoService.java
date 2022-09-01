@@ -33,4 +33,7 @@ public class OrdemServicoService {
 			throws NegocioException {
 		return new OrdemServicoBO().buscarOrdemServicoFiltrada(ordemServico);
 	}
+	public void pagarOrdemServico(OrdemServicoEntity ordemServico) throws NegocioException {
+	       new OrdemServicoBO().pagarOrdemServico(ordemServico);
+	}
 }

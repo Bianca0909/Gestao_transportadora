@@ -114,79 +114,93 @@ public class TelaOrdemServico extends JFrame {
 			}
 		});
 
-		JButton receberButton = new JButton("RECEBER");
-
 		JButton voltarButton = new JButton("VOLTAR");
+		voltarButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaMenu menu = new TelaMenu();
+				menu.setVisible(true);
+				dispose();
+			}
+		});
+		
+		JLabel lblNewLabel_6 = new JLabel("");
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING,
-						gl_contentPane.createSequentialGroup().addGap(52).addComponent(lblNewLabel_2).addGap(18)
-								.addComponent(fornecedorField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-										GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(544, Short.MAX_VALUE))
-				.addGroup(gl_contentPane.createSequentialGroup().addGap(52).addGroup(gl_contentPane
-						.createParallelGroup(Alignment.LEADING)
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblNewLabel_4).addComponent(lblNewLabel_5))
-								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addComponent(valorField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(enderecoField, GroupLayout.PREFERRED_SIZE, 367,
-												GroupLayout.PREFERRED_SIZE)))
-						.addGroup(
-								gl_contentPane.createSequentialGroup()
-										.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-												.addComponent(lblNewLabel_3).addComponent(lblNewLabel_1))
-										.addGap(13)
-										.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-												.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
-														.addComponent(colaboradorField, GroupLayout.PREFERRED_SIZE, 84,
-																GroupLayout.PREFERRED_SIZE)
-														.addGap(2))
-												.addComponent(clienteField, GroupLayout.PREFERRED_SIZE,
-														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
-						.addGap(350))
-				.addGroup(
-						gl_contentPane.createSequentialGroup().addGap(189)
-								.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addComponent(finalizarButton, GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(receberButton, GroupLayout.PREFERRED_SIZE, 108,
-										GroupLayout.PREFERRED_SIZE)
-								.addGap(317))
-				.addGroup(Alignment.LEADING,
-						gl_contentPane.createSequentialGroup().addGap(245)
-								.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 199, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(400, Short.MAX_VALUE)));
-		gl_contentPane.setVerticalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING).addGroup(gl_contentPane
-				.createSequentialGroup().addContainerGap().addComponent(lblNewLabel).addGap(65)
-				.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE).addComponent(lblNewLabel_1)
-						.addComponent(clienteField, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
-				.addGap(28)
-				.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE).addComponent(lblNewLabel_3)
-						.addComponent(colaboradorField, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
-				.addGap(18)
-				.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE).addComponent(lblNewLabel_2)
-						.addComponent(fornecedorField, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
-				.addGap(18)
-				.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE).addComponent(lblNewLabel_4)
-						.addComponent(enderecoField, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
-				.addPreferredGap(ComponentPlacement.UNRELATED)
-				.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+							.addGap(52)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+									.addGroup(gl_contentPane.createSequentialGroup()
+										.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
+										.addGap(23))
+									.addGroup(gl_contentPane.createSequentialGroup()
+										.addComponent(lblNewLabel_3)
+										.addGap(18))
+									.addGroup(gl_contentPane.createSequentialGroup()
+										.addComponent(lblNewLabel_2)
+										.addGap(18)))
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addGap(71)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+										.addComponent(lblNewLabel_5)
+										.addComponent(lblNewLabel_4))))
+							.addGap(31)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(clienteField, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+									.addComponent(colaboradorField, Alignment.TRAILING, 0, 0, Short.MAX_VALUE)
+									.addComponent(fornecedorField, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE))
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+									.addComponent(lblNewLabel_6)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+										.addComponent(valorField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(enderecoField, GroupLayout.PREFERRED_SIZE, 367, GroupLayout.PREFERRED_SIZE)))))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(186)
+							.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+							.addGap(18)
+							.addComponent(finalizarButton, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(245)
+							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 199, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(61, Short.MAX_VALUE))
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(lblNewLabel)
+					.addGap(21)
+					.addComponent(lblNewLabel_6)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(clienteField, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel_1))
+					.addGap(18)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(colaboradorField, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel_3))
+					.addGap(18)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(fornecedorField, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel_2))
+					.addGap(11)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(enderecoField, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel_4))
+					.addGap(16)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 						.addComponent(valorField, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNewLabel_5))
-				.addGap(38)
-				.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(voltarButton, GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(receberButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-										Short.MAX_VALUE)
-								.addComponent(finalizarButton, GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)))
-				.addGap(88)));
+					.addGap(80)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(finalizarButton, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
+						.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE))
+					.addGap(43))
+		);
 		contentPane.setLayout(gl_contentPane);
 	}
-
 }

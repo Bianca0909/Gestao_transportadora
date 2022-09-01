@@ -8,30 +8,58 @@ public class OrdemServicoEntity {
 	private Integer fornecedorId;
 	private Integer colaboradorId;
 	private Double valor;
-	private Enum situacao;
-
-
-
-	public Enum getSituacao() {
-		return situacao;
-	}
-
-	public void setSituacao(Enum situacao) {
-		this.situacao = situacao;
-	}
-
+	private String situacao;
+	private Double valorPago;
+	private Double valorRestante;
+    private Double troco;
+	
 	public OrdemServicoEntity(Integer id, String endereco, Integer clienteId, Integer fornecedorId,
-			Integer colaboradorId, Double valor) {
+			Integer colaboradorId, Double valor, String situacao, Double valorPago, Double valorRestante) {
 		this.id = id;
 		this.endereco = endereco;
 		this.clienteId = clienteId;
 		this.fornecedorId = fornecedorId;
 		this.colaboradorId = colaboradorId;
 		this.valor = valor;
+		this.situacao = situacao;
+		this.valorPago = valorPago;
+		this.valorRestante = valorRestante;
 	}
 
 	public OrdemServicoEntity() {
 
+	}
+
+	public Double getTroco() {
+		return troco;
+	}
+
+	public void setTroco(Double troco) {
+		this.troco = troco;
+	}
+
+	public String getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(String situacao) {
+		this.situacao = situacao;
+	}
+
+	public Double getValorPago() {
+		return valorPago;
+	}
+
+	public void setValorPago(Double valorPago) {
+		this.valorPago = valorPago;
+	}
+
+	public Double getValorRestante() {
+		return valorRestante;
+	}
+
+	public void setValorRestante(Double valorRestante) {
+		this.valorRestante = valorRestante;
 	}
 
 	public Integer getId() {

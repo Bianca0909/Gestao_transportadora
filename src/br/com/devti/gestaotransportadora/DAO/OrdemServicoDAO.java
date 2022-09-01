@@ -12,6 +12,8 @@ import br.com.devti.gestaousuario.core.dao.connection.ConexaoMySQL;
 
 public class OrdemServicoDAO {
 
+
+
 	public String salvarOrdemServico(OrdemServicoEntity ordemServico) throws NegocioException {
 
 		String sql = "INSERT INTO os (cliente_id, fornecedor_id, colaborador_id, endereco_os, valor) VALUES (?, ?, ?, ?, ?)";
@@ -59,7 +61,8 @@ public class OrdemServicoDAO {
 			while (rs.next()) {
 				OrdemServicoEntity ordemServico = new OrdemServicoEntity(rs.getInt("id_ordem_servico"),
 						rs.getString("endereco_os"), rs.getInt("cliente_id"), rs.getInt("fornecedor_id"),
-						rs.getInt("colaborador_id"), rs.getDouble("valor"));
+						rs.getInt("colaborador_id"), rs.getDouble("valor"), rs.getString("situacao"),
+						rs.getDouble("valor_pago"), rs.getDouble("valor_recebido"));
 				resultado.add(ordemServico);
 			}
 		} catch (SQLException e) {
@@ -140,6 +143,28 @@ public class OrdemServicoDAO {
 			}
 		}
 	}
+
+	public String pagarOrdemServico(OrdemServicoEntity ordemServico) throws NegocioException {
+		String sql = "UPDATE os SET valor = ?, situacao = ?, valor_pago = ?, valor_restante = ? WHERE id_ordem_servico = ?";
+		PreparedStatement ps = null;
+
+		try {
+			ps = ConexaoMySQL.getConexao().prepareStatement(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new NegocioException("Erro ao pagar ordem de serviço");
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return "Ordem de serviço paga com sucesso";
+	}
+
+	
 
 	public String alterarOrdemServico(OrdemServicoEntity ordemServico) throws NegocioException {
 

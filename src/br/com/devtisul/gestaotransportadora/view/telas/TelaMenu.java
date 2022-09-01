@@ -82,6 +82,13 @@ public class TelaMenu extends JFrame {
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 5));
 
 		JButton btnNewButton = new JButton("NOVA O.S");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaOrdemServico os = new TelaOrdemServico();
+				os.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton.setBackground(Color.GREEN);
 		
 		JButton consultaButton = new JButton("CONSULTA");
@@ -98,30 +105,30 @@ public class TelaMenu extends JFrame {
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(176)
-					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 434, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(87, Short.MAX_VALUE))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+					.addGap(136)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(136)
+							.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 434, GroupLayout.PREFERRED_SIZE)
+							.addContainerGap())
+						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
 								.addComponent(consultaButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(cadastroButton, GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
 							.addPreferredGap(ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-							.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addContainerGap(309, Short.MAX_VALUE)
-							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 183, GroupLayout.PREFERRED_SIZE)))
-					.addGap(83)
-					.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
-					.addGap(45))
+							.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE)
+							.addGap(83)
+							.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
+							.addGap(45))))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap(293, Short.MAX_VALUE)
+					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 183, GroupLayout.PREFERRED_SIZE)
+					.addGap(221))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(4)
+					.addContainerGap()
 					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 109, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
