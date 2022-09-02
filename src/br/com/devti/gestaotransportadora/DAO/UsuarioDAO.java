@@ -224,7 +224,7 @@ public class UsuarioDAO {
 	}
 
 	public UsuarioEntity autenticar(String login, String senha) throws NegocioException {
-		String sql = "SELECT id_usuario, loin_usuario, senha_usuario FROM usuario WHERE login_usuario = ? AND senha_usuario = ?";
+		String sql = "SELECT id_usuario, login_usuario, senha_usuario FROM usuario WHERE login_usuario = ? AND senha_usuario = ?";
 		
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -238,6 +238,7 @@ public class UsuarioDAO {
 			UsuarioEntity usuarioAutenticado = null;
 			if(rs.next()) {
 				usuarioAutenticado = new UsuarioEntity();
+				usuarioAutenticado.setId(rs.getInt("id_usuario"));
 				usuarioAutenticado.setLogin(rs.getString("login_usuario"));
 				usuarioAutenticado.setSenha(rs.getString("senha_usuario"));
 			}
