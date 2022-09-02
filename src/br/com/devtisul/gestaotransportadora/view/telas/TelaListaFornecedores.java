@@ -109,7 +109,7 @@ public class TelaListaFornecedores extends JFrame {
 		});
 
 		JButton editarButton = new JButton("EDITAR");
-		editarButton.setBackground(Color.BLUE);
+		editarButton.setBackground(Color.PINK);
 		editarButton.setEnabled(false);
 		editarButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

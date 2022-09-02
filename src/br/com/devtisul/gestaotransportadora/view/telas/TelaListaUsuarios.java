@@ -88,6 +88,7 @@ public class TelaListaUsuarios extends JFrame {
 		});
 
 		JButton excluirButton = new JButton("EXCLUIR");
+		excluirButton.setBackground(Color.MAGENTA);
 		excluirButton.setEnabled(false);
 		excluirButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -106,6 +107,7 @@ public class TelaListaUsuarios extends JFrame {
 		});
 
 		JButton editarButton = new JButton("EDITAR");
+		editarButton.setBackground(Color.PINK);
 		editarButton.setEnabled(false);
 		editarButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -120,6 +122,7 @@ public class TelaListaUsuarios extends JFrame {
 		});
 
 		JButton adicionarButton = new JButton("ADICIONAR");
+		adicionarButton.setBackground(Color.GREEN);
 		adicionarButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaCadastroUsuario cadastroUsuario = new TelaCadastroUsuario();
@@ -145,6 +148,7 @@ public class TelaListaUsuarios extends JFrame {
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 17));
 
 		JButton btnNewButton = new JButton("FILTRAR");
+		btnNewButton.setBackground(Color.YELLOW);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				UsuarioEntity usuarioFiltro = new UsuarioEntity();
