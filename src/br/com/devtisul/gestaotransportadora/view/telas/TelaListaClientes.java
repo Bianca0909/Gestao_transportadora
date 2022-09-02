@@ -18,18 +18,15 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import br.com.devti.gestaotransportadora.entity.ClienteEntity;
-import br.com.devti.gestaotransportadora.entity.UsuarioEntity;
 import br.com.devti.gestaotransportadora.service.ClienteService;
-import br.com.devti.gestaotransportadora.service.UsuarioService;
 import br.com.devti.gestaotransportadora.util.exception.NegocioException;
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
 
 public class TelaListaClientes extends JFrame {
 
@@ -168,10 +165,6 @@ public class TelaListaClientes extends JFrame {
 		filtrarButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ClienteEntity clienteFiltro = new ClienteEntity();
-//				clienteFiltro.setName(nomeField.getText());
-//				clienteFiltro.setEmail(emailField.getText());
-//				clienteFiltro.setBirthday(dataField.getText());
-//				clienteFiltro.setCpf(documentoField.getText());
 				if (!codigoField.getText().equals("")) {
 					clienteFiltro.setId(Integer.parseInt(codigoField.getText()));
 				}
@@ -189,7 +182,7 @@ public class TelaListaClientes extends JFrame {
 				}
 				popularTabelaFiltrada(clienteFiltro);
 			}
-			
+
 		});
 
 		JLabel lblNewLabel_5 = new JLabel("Filtrar por:");
@@ -207,7 +200,8 @@ public class TelaListaClientes extends JFrame {
 								.addPreferredGap(ComponentPlacement.RELATED)
 								.addComponent(emailField, GroupLayout.PREFERRED_SIZE, 285, GroupLayout.PREFERRED_SIZE)
 								.addGap(18).addComponent(lblNewLabel_3).addGap(18)
-								.addComponent(documentoField, GroupLayout.PREFERRED_SIZE, 177, GroupLayout.PREFERRED_SIZE)
+								.addComponent(documentoField, GroupLayout.PREFERRED_SIZE, 177,
+										GroupLayout.PREFERRED_SIZE)
 								.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(lblNewLabel_4)
 								.addPreferredGap(ComponentPlacement.RELATED).addComponent(dataField,
 										GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
@@ -295,16 +289,10 @@ public class TelaListaClientes extends JFrame {
 			}
 		});
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"C\u00D3DIGO", "NOME", "EMAIL", "DATA DE NASCIMENTO", "CPF"
-			}
-		) {
-			boolean[] columnEditables = new boolean[] {
-				false, false, false, false, false
-			};
+		table.setModel(new DefaultTableModel(new Object[][] {},
+				new String[] { "C\u00D3DIGO", "NOME", "EMAIL", "DATA DE NASCIMENTO", "CPF" }) {
+			boolean[] columnEditables = new boolean[] { false, false, false, false, false };
+
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
@@ -338,7 +326,7 @@ public class TelaListaClientes extends JFrame {
 
 			for (ClienteEntity clienteEntity : clientes) {
 				model.addRow(new Object[] { clienteEntity.getId(), clienteEntity.getName(), clienteEntity.getEmail(),
-						clienteEntity.getBirthday(), clienteEntity.getCpf()});
+						clienteEntity.getBirthday(), clienteEntity.getCpf() });
 			}
 		} catch (NegocioException e) {
 			// e.printStackTrace();

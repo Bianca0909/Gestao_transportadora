@@ -44,7 +44,7 @@ public class ClienteDAO {
 
 	public List<ClienteEntity> listarClientes() throws NegocioException {
 
-		String sql = "SELECT id_cliente, nome_cliente, email_cliente, data_nascimento_cliente, cpf_cliente FROM cliente ORDER BY id_cliente";
+		String sql = "SELECT id_cliente, nome_cliente, email_cliente, data_nascimento_cliente, cpf_cliente FROM cliente ORDER BY nome_cliente";
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
