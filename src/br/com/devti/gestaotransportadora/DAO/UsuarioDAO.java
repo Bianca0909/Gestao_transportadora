@@ -223,4 +223,37 @@ public class UsuarioDAO {
 		return resultado;
 	}
 
+	public UsuarioEntity autenticar(String login, String senha) throws NegocioException {
+		String sql = "SELECT id_usuario, loin_usuario, senha_usuario FROM usuario WHERE login_usuario = ? AND senha_usuario = ?";
+		
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		try {
+			ps = ConexaoMySQL.getConexao().prepareStatement(sql);
+			ps.setString(1, login);
+			ps.setString(2, senha);
+			rs = ps.executeQuery();
+			
+			UsuarioEntity usuarioAutenticado = null;
+			if(rs.next()) {
+				usuarioAutenticado = new UsuarioEntity();
+				usuarioAutenticado.setLogin(rs.getString("login_usuario"));
+				usuarioAutenticado.setSenha(rs.getString("senha_usuario"));
+			}
+			return usuarioAutenticado;
+		} catch (SQLException e) {
+	    throw new NegocioException("Erro ao tentar autenticar");
+		} finally {
+			try {
+				ps.close();
+				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
+	
 }

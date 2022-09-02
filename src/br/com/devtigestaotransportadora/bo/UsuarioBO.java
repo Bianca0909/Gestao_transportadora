@@ -45,4 +45,7 @@ public class UsuarioBO {
 	public List<UsuarioEntity> buscarUsuarioFiltrado(UsuarioEntity usuario) throws NegocioException {
 		return new UsuarioDAO().buscarUsuarioFiltrado(usuario);
 	}
+	public UsuarioEntity autenticarUsuario(String login, String senha) throws NegocioException {
+		return new UsuarioDAO().autenticar(login, senha);
+	}
 }

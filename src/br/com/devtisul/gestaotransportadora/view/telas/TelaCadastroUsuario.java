@@ -21,13 +21,14 @@ import javax.swing.border.EmptyBorder;
 import br.com.devti.gestaotransportadora.entity.UsuarioEntity;
 import br.com.devti.gestaotransportadora.service.UsuarioService;
 import br.com.devti.gestaotransportadora.util.exception.NegocioException;
+import javax.swing.JPasswordField;
 
 public class TelaCadastroUsuario extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField loginField;
-	private JTextField senhaField;
 	private JTextField codigoField;
+	private JPasswordField senhaField;
 
 	/**
 	 * Launch the application.
@@ -67,9 +68,6 @@ public class TelaCadastroUsuario extends JFrame {
 
 		loginField = new JTextField();
 		loginField.setColumns(10);
-
-		senhaField = new JTextField();
-		senhaField.setColumns(10);
 
 		JButton voltarButton = new JButton("VOLTAR");
 		voltarButton.setBackground(Color.ORANGE);
@@ -127,67 +125,81 @@ public class TelaCadastroUsuario extends JFrame {
 		});
 
 		codigoField = new JTextField();
+		codigoField.setEditable(false);
 		codigoField.setColumns(10);
 
 		JLabel codigoLabel = new JLabel("Código:");
 		codigoLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		
+		senhaField = new JPasswordField();
 
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane
-				.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup().addContainerGap(374, Short.MAX_VALUE)
-								.addComponent(lblNewLabel_3).addGap(250))
-						.addGroup(gl_contentPane.createSequentialGroup().addGap(190)
-								.addComponent(lblNewLabel_4, GroupLayout.PREFERRED_SIZE, 215,
-										GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(219, Short.MAX_VALUE))
-						.addGroup(gl_contentPane
-								.createSequentialGroup().addContainerGap(106, Short.MAX_VALUE).addComponent(lblNewLabel)
-								.addGap(73))
-						.addGroup(gl_contentPane.createSequentialGroup().addGap(56)
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_contentPane.createSequentialGroup().addGap(72)
-												.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 101,
-														GroupLayout.PREFERRED_SIZE)
-												.addPreferredGap(ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-												.addComponent(salvarButton, GroupLayout.PREFERRED_SIZE, 104,
-														GroupLayout.PREFERRED_SIZE)
-												.addGap(30)
-												.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 91,
-														GroupLayout.PREFERRED_SIZE)
-												.addGap(136))
-										.addGroup(gl_contentPane.createSequentialGroup()
-												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-														.addComponent(codigoLabel).addComponent(loginLabel)
-														.addComponent(senhaLabel))
-												.addGap(18)
-												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-														.addComponent(senhaField)
-														.addComponent(codigoField, GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-														.addComponent(loginField, 156, 156, Short.MAX_VALUE))
-												.addGap(332)))));
-		gl_contentPane.setVerticalGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_contentPane.createSequentialGroup().addComponent(lblNewLabel)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-								.addGroup(gl_contentPane.createSequentialGroup().addComponent(lblNewLabel_3)
-										.addPreferredGap(ComponentPlacement.RELATED).addComponent(lblNewLabel_4)
-										.addPreferredGap(ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-										.addComponent(codigoField, GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE))
-								.addComponent(codigoLabel))
-						.addPreferredGap(ComponentPlacement.UNRELATED)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE).addComponent(loginLabel)
-								.addComponent(loginField, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
-						.addPreferredGap(ComponentPlacement.UNRELATED)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE).addComponent(senhaLabel)
-								.addComponent(senhaField, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
-						.addGap(98)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(salvarButton, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
-								.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
-								.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE))
-						.addGap(24)));
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap(380, Short.MAX_VALUE)
+					.addComponent(lblNewLabel_3)
+					.addGap(250))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(190)
+					.addComponent(lblNewLabel_4, GroupLayout.PREFERRED_SIZE, 215, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(225, Short.MAX_VALUE))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap(112, Short.MAX_VALUE)
+					.addComponent(lblNewLabel)
+					.addGap(73))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(56)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(72)
+							.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 101, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+							.addComponent(salvarButton, GroupLayout.PREFERRED_SIZE, 104, GroupLayout.PREFERRED_SIZE)
+							.addGap(30)
+							.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)
+							.addGap(136))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(codigoLabel)
+								.addComponent(loginLabel)
+								.addComponent(senhaLabel))
+							.addGap(18)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(senhaField)
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+									.addComponent(codigoField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addComponent(loginField, 156, 156, Short.MAX_VALUE)))
+							.addGap(332))))
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addComponent(lblNewLabel)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(lblNewLabel_3)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(lblNewLabel_4)
+							.addPreferredGap(ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+							.addComponent(codigoField, GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
+						.addComponent(codigoLabel))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(loginLabel)
+						.addComponent(loginField, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(senhaLabel)
+						.addComponent(senhaField, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+					.addGap(98)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(salvarButton, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+						.addComponent(voltarButton, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
+						.addComponent(sairButton, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE))
+					.addGap(24))
+		);
 		contentPane.setLayout(gl_contentPane);
 	}
 

@@ -2,6 +2,7 @@ package br.com.devti.gestaotransportadora.service;
 
 import java.util.List;
 
+import br.com.devti.gestaotransportadora.DAO.UsuarioDAO;
 import br.com.devti.gestaotransportadora.entity.UsuarioEntity;
 import br.com.devti.gestaotransportadora.util.exception.NegocioException;
 import br.com.devtigestaotransportadora.bo.UsuarioBO;
@@ -37,4 +38,8 @@ public class UsuarioService {
     public List<UsuarioEntity> buscarUsuarioFiltrado(UsuarioEntity usuario) throws NegocioException {
     	return new UsuarioBO().buscarUsuarioFiltrado(usuario);
     	}
+     public UsuarioEntity autenticarUsuario(String login, String senha) throws NegocioException {
+		return new UsuarioDAO().autenticar(login, senha);
+	}
+    
 }

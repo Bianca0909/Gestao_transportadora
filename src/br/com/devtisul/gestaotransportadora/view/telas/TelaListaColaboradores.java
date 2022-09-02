@@ -1,37 +1,32 @@
 package br.com.devtisul.gestaotransportadora.view.telas;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-
-import br.com.devti.gestaotransportadora.entity.ClienteEntity;
-import br.com.devti.gestaotransportadora.entity.ColaboradorEntity;
-import br.com.devti.gestaotransportadora.service.ClienteService;
-import br.com.devti.gestaotransportadora.service.ColaboradorService;
-import br.com.devti.gestaotransportadora.service.UsuarioService;
-import br.com.devti.gestaotransportadora.util.exception.NegocioException;
-
-import javax.swing.ListSelectionModel;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
+
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
-import java.awt.Color;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.ListSelectionModel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import br.com.devti.gestaotransportadora.entity.ColaboradorEntity;
+import br.com.devti.gestaotransportadora.service.ColaboradorService;
+import br.com.devti.gestaotransportadora.util.exception.NegocioException;
 
 public class TelaListaColaboradores extends JFrame {
 

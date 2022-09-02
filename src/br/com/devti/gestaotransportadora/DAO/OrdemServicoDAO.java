@@ -47,7 +47,7 @@ public class OrdemServicoDAO {
 
 	public List<OrdemServicoEntity> listarOrdensServico() throws NegocioException {
 
-		String sql = "SELECT id_ordem_servico, cliente_id, fornecedor_id, colaborador_id, endereco_os, valor FROM os";
+		String sql = "SELECT id_ordem_servico, cliente_id, fornecedor_id, colaborador_id, endereco_os, valor, situacao, valor_pago, valor_restante FROM os";
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -62,7 +62,7 @@ public class OrdemServicoDAO {
 				OrdemServicoEntity ordemServico = new OrdemServicoEntity(rs.getInt("id_ordem_servico"),
 						rs.getString("endereco_os"), rs.getInt("cliente_id"), rs.getInt("fornecedor_id"),
 						rs.getInt("colaborador_id"), rs.getDouble("valor"), rs.getString("situacao"),
-						rs.getDouble("valor_pago"), rs.getDouble("valor_recebido"));
+						rs.getDouble("valor_pago"), rs.getDouble("valor_restante"));
 				resultado.add(ordemServico);
 			}
 		} catch (SQLException e) {
@@ -106,7 +106,7 @@ public class OrdemServicoDAO {
 
 	public OrdemServicoEntity buscarOrdemServicoPorId(Integer id) throws NegocioException {
 
-		String sql = "SELECT id_ordem_servico, endereco_os, cliente_id, fornecedor_id, colaborador_id, valor FROM os WHERE id_ordem_servico = ?";
+		String sql = "SELECT id_ordem_servico, cliente_id, fornecedor_id, colaborador_id, endereco_os, valor, situacao, valor_pago, valor_restante FROM os WHERE id_ordem_servico = ?";
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -127,6 +127,9 @@ public class OrdemServicoDAO {
 				ordemServicoEncontrada.setFornecedorId(rs.getInt("Fornecedor_id"));
 				ordemServicoEncontrada.setEndereco(rs.getString("Endereco_os"));
 				ordemServicoEncontrada.setValor(rs.getDouble("valor"));
+				ordemServicoEncontrada.setSituacao(rs.getString("situacao"));
+				ordemServicoEncontrada.setValorPago(rs.getDouble("valor_pago"));
+				ordemServicoEncontrada.setValorRestante(rs.getDouble("valor_restante"));
 
 			}
 
@@ -168,7 +171,7 @@ public class OrdemServicoDAO {
 
 	public String alterarOrdemServico(OrdemServicoEntity ordemServico) throws NegocioException {
 
-		String sql = "UPDATE os SET endereco_os = ?, cliente_id = ?, fornecedor_id = ?, colaborador_id = ?, valor = ? WHERE id_ordem_servico = ?";
+		String sql = "UPDATE os SET cliente_id, fornecedor_id, colaborador_id, endereco_os, valor, situacao, valor_pago, valor_restante WHERE id_ordem_servico = ?";
 
 		PreparedStatement ps = null;
 
@@ -200,7 +203,7 @@ public class OrdemServicoDAO {
 	public List<OrdemServicoEntity> buscarOrdemServicoFiltrada(OrdemServicoEntity ordemServico)
 			throws NegocioException {
 
-		String sql = "SELECT id_ordem_servico, cliente_id, fornecedor_id, colaborador_id, endereco_os, valor FROM os";
+		String sql = "SELECT id_ordem_servico, id_ordem_servico, cliente_id, fornecedor_id, colaborador_id, endereco_os, valor, situacao, valor_pago, valor_restante FROM os";
 
 		List<OrdemServicoEntity> resultado = new ArrayList<OrdemServicoEntity>();
 
@@ -300,6 +303,9 @@ public class OrdemServicoDAO {
 				ordemServicoResultado.setColaboradorId(rs.getInt("colaborador_id"));
 				ordemServicoResultado.setEndereco(rs.getString("endereco_os"));
 				ordemServicoResultado.setValor(rs.getDouble("valor"));
+				ordemServicoResultado.setSituacao(rs.getString("situacao"));
+				ordemServicoResultado.setValorPago(rs.getDouble("valor_pago"));
+				ordemServicoResultado.setValorRestante(rs.getDouble("valor_restante"));
 				resultado.add(ordemServicoResultado);
 			}
 		} catch (SQLException e) {

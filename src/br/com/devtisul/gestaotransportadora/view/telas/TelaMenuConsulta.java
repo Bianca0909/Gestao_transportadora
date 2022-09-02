@@ -102,6 +102,13 @@ public class TelaMenuConsulta extends JFrame {
 		});
 		
 		JButton osButton = new JButton("O.S's");
+		osButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaListaOrdemServico os = new TelaListaOrdemServico();
+				os.setVisible(true);
+				dispose();
+			}
+		});
 		osButton.setBackground(Color.GREEN);
 		
 		
