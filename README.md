@@ -8,7 +8,7 @@ Projeto final DEVTISUL - Módulo 2
   - LISTAR <span style='font-size:100px;'>&#9989;</span>,
   - DELETAR <span style='font-size:100px;'>&#9989;</span>,
   - BUSCAR POR ID <span style='font-size:100px;'>&#9989;</span>,
-  - PESQUISA FILTRADA <span style='font-size:100px;'>&#10067;</span> <span style='font-size:100px;'>&#10062;</span> - Está com erro em filtrar OS pelo valor
+  - PESQUISA FILTRADA <span style='font-size:100px;'>&#9989;</span>
   
   - PAGAR ORDEM DE SERVIÇO <span style='font-size:100px;'>&#128204;</span>
  
@@ -16,14 +16,14 @@ Projeto final DEVTISUL - Módulo 2
   - TELA DE MENU <span style='font-size:100px;'>&#9989;</span>,
   - CADASTRAR <span style='font-size:100px;'>&#9989;</span>,
   - ALTERAR <span style='font-size:100px;'>&#9989;</span>,
-  - LISTAR <span style='font-size:100px;'>&#128204;</span>,
+  - LISTAR <span style='font-size:100px;'>&#9989;</span>,
   - DELETAR <span style='font-size:100px;'>&#9989;</span>,
   - BUSCAR POR ID <span style='font-size:100px;'>&#9989;</span>,
-  - PESQUISA FILTRADA <span style='font-size:100px;'>&#128204;</span>
-  - ORDEM DE SERVIÇO <span style='font-size:100px;'>&#128204;</span>
+  - PESQUISA FILTRADA <span style='font-size:100px;'>&#9989;</span>
+  - ORDEM DE SERVIÇO <span style='font-size:100px;'>&#9989;</span>
 
-- LOGIN BACKEND (BÔNUS); <span style='font-size:100px;'>&#10060;</span>,
-- INTERFACE GRÁFICA LOGIN (BÔNUS). <span style='font-size:100px;'>&#10060;</span>
+- LOGIN BACKEND (BÔNUS); <span style='font-size:100px;'>&#9989;</span>,
+- INTERFACE GRÁFICA LOGIN (BÔNUS). <span style='font-size:100px;'>&#9989;</span>
  
 - CLASSE DE USUÁRIO  <span style='font-size:100px;'>&#9989;</span>
  
