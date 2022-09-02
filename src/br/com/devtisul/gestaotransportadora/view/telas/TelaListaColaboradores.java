@@ -91,6 +91,7 @@ public class TelaListaColaboradores extends JFrame {
 		});
 
 		JButton excluirButton = new JButton("EXCLUIR");
+		excluirButton.setBackground(Color.RED);
 		excluirButton.setEnabled(false);
 		excluirButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -109,6 +110,7 @@ public class TelaListaColaboradores extends JFrame {
 		});
 
 		JButton editarButton = new JButton("EDITAR");
+		editarButton.setBackground(Color.BLUE);
 		editarButton.setEnabled(false);
 		editarButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -121,6 +123,7 @@ public class TelaListaColaboradores extends JFrame {
 		});
 
 		JButton adicionarButton = new JButton("ADICIONAR");
+		adicionarButton.setBackground(Color.GREEN);
 		adicionarButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaCadastroColaborador cadastroColaborador = new TelaCadastroColaborador();
@@ -160,6 +163,7 @@ public class TelaListaColaboradores extends JFrame {
 		pisField.setColumns(10);
 
 		JButton filtrarButton = new JButton("FILTRAR");
+		filtrarButton.setBackground(Color.YELLOW);
 		filtrarButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ColaboradorEntity colaboradorFiltro = new ColaboradorEntity();

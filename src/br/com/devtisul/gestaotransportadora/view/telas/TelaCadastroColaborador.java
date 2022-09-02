@@ -148,6 +148,7 @@ public class TelaCadastroColaborador extends JFrame {
 		codigoLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
 		codigoField = new JTextField();
+		codigoField.setEditable(false);
 		codigoField.setColumns(10);
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);

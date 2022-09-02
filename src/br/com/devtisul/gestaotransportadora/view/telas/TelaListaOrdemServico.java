@@ -1,36 +1,30 @@
 package br.com.devtisul.gestaotransportadora.view.telas;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-
-import br.com.devti.gestaotransportadora.entity.ClienteEntity;
-import br.com.devti.gestaotransportadora.entity.ColaboradorEntity;
-import br.com.devti.gestaotransportadora.entity.OrdemServicoEntity;
-import br.com.devti.gestaotransportadora.service.ClienteService;
-import br.com.devti.gestaotransportadora.service.ColaboradorService;
-import br.com.devti.gestaotransportadora.service.OrdemServicoService;
-import br.com.devti.gestaotransportadora.util.exception.NegocioException;
-
-import javax.swing.JButton;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
 import java.awt.Font;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
-import java.awt.event.ActionEvent;
+
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import br.com.devti.gestaotransportadora.entity.OrdemServicoEntity;
+import br.com.devti.gestaotransportadora.service.OrdemServicoService;
+import br.com.devti.gestaotransportadora.util.exception.NegocioException;
+import java.awt.Color;
 
 public class TelaListaOrdemServico extends JFrame {
 
@@ -67,6 +61,7 @@ public class TelaListaOrdemServico extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 
 		JButton btnNewButton = new JButton("VOLTAR");
+		btnNewButton.setBackground(Color.ORANGE);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaMenuConsulta consultaMenu = new TelaMenuConsulta();
@@ -76,6 +71,7 @@ public class TelaListaOrdemServico extends JFrame {
 		});
 
 		JButton btnNewButton_1 = new JButton("SAIR");
+		btnNewButton_1.setBackground(Color.RED);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -83,10 +79,12 @@ public class TelaListaOrdemServico extends JFrame {
 		});
 
 		JButton excluirButton = new JButton("EXCLUIR");
+		excluirButton.setBackground(Color.MAGENTA);
 		excluirButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				OrdemServicoEntity osSelecionada = ordens.get(table.getSelectedRow());
-				if (JOptionPane.showConfirmDialog(null, "Deseja excluir a ordem de serviço?") == JOptionPane.OK_OPTION) {
+				if (JOptionPane.showConfirmDialog(null,
+						"Deseja excluir a ordem de serviço?") == JOptionPane.OK_OPTION) {
 
 					try {
 						new OrdemServicoService().excluirOrdemServico(osSelecionada.getId());
@@ -101,6 +99,7 @@ public class TelaListaOrdemServico extends JFrame {
 		});
 
 		JButton adicionarButton = new JButton("ADICIONAR");
+		adicionarButton.setBackground(Color.GREEN);
 		adicionarButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaOrdemServico novaOs = new TelaOrdemServico();
@@ -112,46 +111,39 @@ public class TelaListaOrdemServico extends JFrame {
 		JLabel lblNewLabel = new JLabel("Ordens de serviço");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(559)
-					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(497, Short.MAX_VALUE))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-						.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 1203, Short.MAX_VALUE)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(adicionarButton)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(excluirButton, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)))
-					.addGap(25))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap(522, Short.MAX_VALUE)
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 205, GroupLayout.PREFERRED_SIZE)
-					.addGap(511))
-		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblNewLabel)
-					.addGap(71)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(excluirButton, GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-						.addComponent(adicionarButton, GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap())
-		);
+		gl_contentPane
+				.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_contentPane.createSequentialGroup().addGap(559)
+								.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.UNRELATED)
+								.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 87,
+										GroupLayout.PREFERRED_SIZE)
+								.addContainerGap(497, Short.MAX_VALUE))
+						.addGroup(gl_contentPane.createSequentialGroup().addContainerGap()
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+										.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 1203, Short.MAX_VALUE)
+										.addGroup(gl_contentPane.createSequentialGroup().addComponent(adicionarButton)
+												.addPreferredGap(ComponentPlacement.RELATED)
+												.addComponent(excluirButton, GroupLayout.PREFERRED_SIZE, 89,
+														GroupLayout.PREFERRED_SIZE)
+												.addPreferredGap(ComponentPlacement.RELATED)))
+								.addGap(25))
+						.addGroup(gl_contentPane.createSequentialGroup().addContainerGap(522, Short.MAX_VALUE)
+								.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 205, GroupLayout.PREFERRED_SIZE)
+								.addGap(511)));
+		gl_contentPane.setVerticalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup().addContainerGap().addComponent(lblNewLabel).addGap(71)
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+								.addComponent(excluirButton, GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+								.addComponent(adicionarButton, GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE))
+						.addPreferredGap(ComponentPlacement.UNRELATED)
+						.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
+						.addPreferredGap(ComponentPlacement.RELATED)
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+								.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 55,
+										GroupLayout.PREFERRED_SIZE))
+						.addContainerGap()));
 
 		table = new JTable();
 		table.addMouseListener(new MouseAdapter() {

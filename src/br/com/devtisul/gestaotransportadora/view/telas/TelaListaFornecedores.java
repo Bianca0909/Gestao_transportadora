@@ -90,6 +90,7 @@ public class TelaListaFornecedores extends JFrame {
 		});
 
 		JButton excluirButton = new JButton("EXCLUIR");
+		excluirButton.setBackground(Color.MAGENTA);
 		excluirButton.setEnabled(false);
 		excluirButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -108,6 +109,7 @@ public class TelaListaFornecedores extends JFrame {
 		});
 
 		JButton editarButton = new JButton("EDITAR");
+		editarButton.setBackground(Color.BLUE);
 		editarButton.setEnabled(false);
 		editarButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -120,6 +122,7 @@ public class TelaListaFornecedores extends JFrame {
 		});
 
 		JButton adicionarButton = new JButton("ADICIONAR");
+		adicionarButton.setBackground(Color.GREEN);
 		adicionarButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaCadastroFornecedor cadastroFornecedor = new TelaCadastroFornecedor();
@@ -154,6 +157,7 @@ public class TelaListaFornecedores extends JFrame {
 		dataField.setColumns(10);
 
 		JButton filtrarButton = new JButton("FILTRAR");
+		filtrarButton.setBackground(Color.YELLOW);
 		filtrarButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FornecedorEntity fornecedorFiltro = new FornecedorEntity();
